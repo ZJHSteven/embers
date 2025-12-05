@@ -24,11 +24,11 @@ function verifyCompatibleProductTypes(arg1: unknown, arg2: unknown)  {
     }
 
     if (arg1ValueType !== "number" && arg1ValueType !== "vector") {
-        return `arguments must be "number" or "vector"`;
+        return `参数必须是 number 或 vector`;
     }
 
     if (arg2ValueType !== "number" && arg2ValueType !== "vector") {
-        return `arguments must be "number" or "vector"`;
+        return `参数必须是 number 或 vector`;
     }
 
     return null;
@@ -99,7 +99,7 @@ function add(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<unknown
             y: v1.y + v2.y
         });
     }
-    return _error("add(): invalid types");
+    return _error("add(): 类型无效");
 }
 
 function subtract(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<unknown>, arg2: BlueprintValue<unknown>) {
@@ -125,7 +125,7 @@ function subtract(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<un
             y: v1.y - v2.y
         });
     }
-    return _error("subtract(): invalid types");
+    return _error("subtract(): 类型无效");
 }
 
 function multiply(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<unknown>, arg2: BlueprintValue<unknown>) {
@@ -163,7 +163,7 @@ function multiply(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<un
             y: v1.y * v2.y
         });
     }
-    return _error("multiply(): invalid types");
+    return _error("multiply(): 类型无效");
 }
 
 function divide(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<unknown>, arg2: BlueprintValue<unknown>) {
@@ -201,7 +201,7 @@ function divide(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<unkn
             y: v1.y / v2.y
         });
     }
-    return _error("divide(): invalid types");
+    return _error("divide(): 类型无效");
 }
 
 function if_(resolve: BlueprintFunctionResolveArgs, condition: BlueprintValue<unknown>, success: BlueprintValue<unknown>, failure?: BlueprintValue<unknown>) {
@@ -346,7 +346,7 @@ function index_of(resolve: BlueprintFunctionResolveArgs, arg1: BlueprintValue<un
         return _error(array.error);
     }
     if (!Array.isArray(array.value)) {
-        return _error("the second argument of index_of must be an array");
+        return _error("index_of 的第二参数必须是数组");
     }
     const index = (array.value as unknown[]).findIndex(possibleObj => JSON.stringify(possibleObj) === JSON.stringify(obj.value));
     return _value(index != -1 ? index : undefined);
@@ -398,7 +398,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         func: concat,
         desc: {
             minArgs: 1,
-            description: "Concatenate one or more strings",
+            description: "连接一个或多个字符串",
             argumentType: "string",
             returnType: "string"
         }
@@ -407,7 +407,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         func: product,
         desc: {
             minArgs: 1,
-            description: "Multiply all arguments together",
+            description: "将所有参数相乘",
             argumentType: "number",
             returnType: "number"
         }
@@ -416,7 +416,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         func: sum,
         desc: {
             minArgs: 1,
-            description: "Add all arguments together",
+            description: "将所有参数相加",
             argumentType: "number",
             returnType: "number"
         }
@@ -426,7 +426,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Adds the first and the second argument. If both arguments are vectors, performs element-wise addition.",
+            description: "两个参数相加；若为向量则逐元素相加。",
             argumentType: "[number|vector, number|vector]",
             returnType: "number|vector"
         }
@@ -436,7 +436,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Subtracts the second argument from the first. If both arguments are vectors, performs element-wise subtraction.",
+            description: "第一个减去第二个；向量则逐元素相减。",
             argumentType: "[number|vector, number|vector]",
             returnType: "number|vector"
         }
@@ -446,7 +446,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Multiplies the first argument by the second. If one argument is a vector, both elements are multiplied by the scalar. If both arguments are vectors, performs element-wise multiplication.",
+            description: "第一个乘以第二个；含向量时按标量或逐元素相乘。",
             argumentType: "[number|vector, number|vector]",
             returnType: "number|vector"
         }
@@ -456,7 +456,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Divides the first argument by the second. If one argument is a vector, both elements are divided by the scalar. If both arguments are vectors, performs element-wise division.",
+            description: "第一个除以第二个；含向量时按标量或逐元素相除。",
             argumentType: "[number|vector, number|vector]",
             returnType: "number|vector"
         }
@@ -494,7 +494,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 3,
-            description: "Returns the second argument if the first argument is truthy, otherwise returns the third argument",
+            description: "若首参为真返回第二参，否则第三参",
             argumentType: "any",
             returnType: "any"
         }
@@ -504,7 +504,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Computes the angle of a vector connecting the first and the second arguments",
+            description: "计算首参到次参向量的角度",
             argumentType: "vector",
             returnType: "number"
         }
@@ -553,7 +553,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         func: random_choice,
         desc: {
             minArgs: 1,
-            description: "Randomly returns one of the provided arguments",
+            description: "随机返回提供的一个参数",
             argumentType: "any",
             returnType: "any"
         }
@@ -563,7 +563,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Returns a random integer between the first and the second arguments",
+            description: "返回两数之间的随机整数",
             argumentType: "number",
             returnType: "number"
         }
@@ -573,7 +573,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 2,
             maxArgs: 2,
-            description: "Returns the index of the first argument in the second argument, or undefined if it's not found",
+            description: "返回首参在第二参中的索引，未找到则为 undefined",
             argumentType: "any",
             returnType: "number|undefined"
         }
@@ -583,7 +583,7 @@ export const blueprintFunctions: Record<string, { func: BlueprintFunctionBuiltin
         desc: {
             minArgs: 1,
             maxArgs: 1,
-            description: "Returns the size of the greatest dimension of an item asset",
+            description: "返回素材最大边长",
             argumentType: "asset",
             returnType: "number"
         }

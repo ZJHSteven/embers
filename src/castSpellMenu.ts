@@ -17,7 +17,7 @@ export function setupContextMenu(playerRole: "GM" | "PLAYER") {
                 icons: [
                 {
                     icon: "/cast.svg",
-                    label: "Cast spell from here", // Turn this into "End spell effect"
+                    label: "从此处施放法术", // Turn this into "End spell effect"
                     filter: {
                         min: 1,
                         max: 2,

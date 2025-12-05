@@ -160,7 +160,7 @@ export function setupEffectsTool(playerRole: "GM" | "PLAYER", playerID: string) 
             },
             icons: [{
                 icon: `${window.location.origin}/embers.svg`,
-                label: "Cast spell"
+                label: "施放法术"
             }],
             shortcut: "Shift+C",
             onClick(context) {
@@ -211,7 +211,7 @@ async function setupToolActions(playerRole: "GM" | "PLAYER", playerID: string) {
         id: effectsToolActionID,
         icons: [{
             icon: `${window.location.origin}/cast.svg`,
-            label: "Cast Selected Spell",
+            label: "施放已选法术",
             filter: {
                 activeTools: [toolID],
             },
@@ -226,12 +226,12 @@ async function setupToolActions(playerRole: "GM" | "PLAYER", playerID: string) {
         onClick() {
             Promise.all([OBR.player.getMetadata(), getGlobalSettingsValue(GLOBAL_STORAGE_KEYS.PLAYERS_CAN_CAST_SPELLS)]).then(([metadata, canCastSpells]) => {
                 if (!canCastSpells && playerRole !== "GM") {
-                    OBR.notification.show("Embers: You do not have permission to cast spells", "ERROR");
+                    OBR.notification.show("余烬：你没有施法权限", "ERROR");
                     return;
                 }
                 if (typeof metadata[toolMetadataSelectedSpell] != "string") {
                     log_error(`Invalid spell selected ("${metadata?.[toolMetadataSelectedSpell]}")`);
-                    OBR.notification.show(`Embers: Invalid spell selected ("${metadata?.[toolMetadataSelectedSpell]}")`, "ERROR");
+                    OBR.notification.show(`余烬：所选法术无效（${metadata?.[toolMetadataSelectedSpell]}）`, "ERROR");
                     return;
                 }
                 doSpell(metadata[toolMetadataSelectedSpell], playerID, playerRole === "GM");
@@ -244,7 +244,7 @@ async function setupToolActions(playerRole: "GM" | "PLAYER", playerID: string) {
         id: selectSpellToolActionID,
         icons: [{
             icon: `${window.location.origin}/pick-spell.svg`,
-            label: "Select Spell",
+            label: "选择法术",
             filter: {
                 activeTools: [toolID]
             }
@@ -267,7 +267,7 @@ async function setupToolActions(playerRole: "GM" | "PLAYER", playerID: string) {
         id: clearTargetSelectionToolActionID,
         icons: [{
             icon: `${window.location.origin}/remove-selection.svg`,
-            label: "Clear Target Selection",
+            label: "清除目标选择",
             filter: {
                 activeTools: [toolID]
             }
@@ -287,7 +287,7 @@ async function setupTargetToolModes() {
         id: effectsToolModeID,
         icons: [{
             icon: `${window.location.origin}/target.svg`,
-            label: "Add Targets",
+            label: "添加目标",
             filter: {
                 activeTools: [toolID]
             }
@@ -357,7 +357,7 @@ async function setupTargetToolModes() {
         id: removeTargetToolModeID,
         icons: [{
             icon: `${window.location.origin}/remove-target.svg`,
-            label: "Remove Targets",
+            label: "移除目标",
             filter: {
                 activeTools: [toolID]
             }
@@ -407,7 +407,7 @@ export async function setupDefaultCasterMenuOption() {
             id: defaultCasterMenuId,
             icons: [{
                 icon: "/embers.svg",
-                label: "Set default caster",
+                label: "设为默认施法者",
             }],
             onClick: async () => {
                 const selection = await OBR.player.getSelection();

@@ -1,28 +1,49 @@
 {
     "dancing_lights": {
-        "name": "Dancing Lights",
+        "name": "舞光术",
         "minTargets": 1,
         "thumbnail": "Cantrip/Dancing_Lights/DancingLights_01_Yellow_Thumb.webp",
         "replicate": "all",
         "copy": 0,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "yellow",
                 "content": [
-                    { "value": "blue_teal", "label": "Blue teal" },
-                    { "value": "blue_yellow", "label": "Blue and yellow" },
-                    { "value": "green", "label": "Green" },
-                    { "value": "pink", "label": "Pink" },
-                    { "value": "purple_green", "label": "Purple and green" },
-                    { "value": "red", "label": "Red" },
-                    { "value": "yellow", "label": "Yellow" }
+                    {
+                        "value": "blue_teal",
+                        "label": "蓝青"
+                    },
+                    {
+                        "value": "blue_yellow",
+                        "label": "蓝黄"
+                    },
+                    {
+                        "value": "green",
+                        "label": "绿色"
+                    },
+                    {
+                        "value": "pink",
+                        "label": "粉色"
+                    },
+                    {
+                        "value": "purple_green",
+                        "label": "紫绿"
+                    },
+                    {
+                        "value": "red",
+                        "label": "红色"
+                    },
+                    {
+                        "value": "yellow",
+                        "label": "黄色"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 1,
@@ -31,7 +52,7 @@
                 }
             },
             {
-                "name": "Lightsource",
+                "name": "作为光源",
                 "id": "light",
                 "type": "boolean",
                 "defaultValue": true
@@ -42,7 +63,10 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["dancing_lights.", "$color"]
+                    "arguments": [
+                        "dancing_lights.",
+                        "$color"
+                    ]
                 },
                 "duration": -1,
                 "metadata": {
@@ -65,7 +89,7 @@
         ]
     },
     "eldritch_blast": {
-        "name": "Eldritch Blast",
+        "name": "奥术冲击",
         "minTargets": 2,
         "thumbnail": "Cantrip/Eldritch_Blast/EldritchBlast_01_Regular_Purple_Thumb.webp",
         "replicate": "first_to_all",
@@ -83,7 +107,7 @@
         ]
     },
     "fire_bolt": {
-        "name": "Fire Bolt",
+        "name": "火焰箭",
         "minTargets": 2,
         "thumbnail": "Cantrip/Fire_Bolt/FireBolt_01_Regular_Orange_Thumb.webp",
         "replicate": "first_to_all",
@@ -101,7 +125,7 @@
         ]
     },
     "frostbite": {
-        "name": "Frostbite",
+        "name": "霜寒",
         "thumbnail": "Generic/Ice/SnowflakeBurst_01_Regular_BlueWhite_Loop_Thumb.webp",
         "replicate": "all",
         "copy": -1,
@@ -117,7 +141,7 @@
         ]
     },
     "mind_sliver": {
-        "name": "Mind Sliver",
+        "name": "心灵碎片",
         "thumbnail": "Generic/Healing/HealingAbility_01_Purple_Thumb.webp",
         "replicate": "all",
         "copy": -1,
@@ -133,7 +157,7 @@
         ]
     },
     "ray_of_frost": {
-        "name": "Ray of Frost",
+        "name": "寒霜射线",
         "minTargets": 2,
         "thumbnail": "Cantrip/Ray_Of_Frost/RayOfFrost_01_Regular_Blue_Thumb.webp",
         "replicate": "first_to_all",
@@ -151,7 +175,7 @@
         ]
     },
     "sacred_flame": {
-        "name": "Sacred Flame",
+        "name": "圣光焰",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "Cantrip/Sacred_Flame/SacredFlameSource_01_Regular_Yellow_Thumb.webp",
@@ -179,7 +203,7 @@
         ]
     },
     "toll_the_dead": {
-        "name": "Toll the Dead",
+        "name": "丧钟",
         "minTargets": 1,
         "thumbnail": "Cantrip/Toll_The_Dead/TollTheDead_01_Regular_Green_Thumb.webp",
         "replicate": "all",
@@ -196,7 +220,7 @@
         ]
     },
     "arms_of_hadar": {
-        "name": "Arms of Hadar",
+        "name": "哈达尔之臂",
         "minTargets": 1,
         "thumbnail": "1st_Level/Arms_Of_Hadar/ArmsOfHadar_01_Dark_Purple_Thumb.webp",
         "replicate": "all",
@@ -204,7 +228,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -224,14 +248,17 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "sum",
-                        "arguments": ["$radius", "$targets[0].size"]
+                        "arguments": [
+                            "$radius",
+                            "$targets[0].size"
+                        ]
                     }
                 }
             }
         ]
     },
     "bless": {
-        "name": "Bless",
+        "name": "祝福术",
         "minTargets": 1,
         "thumbnail": "1st_Level/Bless/Bless_01_Regular_Yellow_Thumb.webp",
         "replicate": "all",
@@ -261,7 +288,7 @@
         ]
     },
     "burning_hands": {
-        "name": "Burning Hands",
+        "name": "燃烧之手",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "1st_Level/Burning_Hands/BurningHands_01_Regular_Orange_Thumb.webp",
@@ -270,7 +297,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Length (in cells)",
+                "name": "长度（格）",
                 "id": "length",
                 "type": "number",
                 "defaultValue": 5,
@@ -288,7 +315,10 @@
                     "source": "$targets[0].position",
                     "rotation": {
                         "name": "rotation",
-                        "arguments": ["$targets[0].position", "$targets[1].position"]
+                        "arguments": [
+                            "$targets[0].position",
+                            "$targets[1].position"
+                        ]
                     },
                     "size": "$length"
                 }
@@ -296,7 +326,7 @@
         ]
     },
     "cure_wounds": {
-        "name": "Cure Wounds",
+        "name": "治疗伤口",
         "minTargets": 1,
         "thumbnail": "1st_Level/Cure_Wounds/CureWounds_01_Blue_Thumb.webp",
         "replicate": "all",
@@ -313,7 +343,7 @@
         ]
     },
     "detect_magic": {
-        "name": "Detect Magic",
+        "name": "侦测魔法",
         "minTargets": 1,
         "thumbnail": "1st_Level/Detect_Magic/DetectMagicCircle_01_Regular_Blue_Thumb.webp",
         "replicate": "all",
@@ -321,17 +351,23 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Area of effect",
+                "name": "影响区域",
                 "id": "aoe_type",
                 "type": "options",
                 "defaultValue": "circle",
                 "content": [
-                    { "value": "circle", "label": "Circle" },
-                    { "value": "cone", "label": "Cone" }
+                    {
+                        "value": "circle",
+                        "label": "圆形"
+                    },
+                    {
+                        "value": "cone",
+                        "label": "锥形"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 12,
@@ -345,7 +381,10 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["detect_magic.", "$aoe_type"]
+                    "arguments": [
+                        "detect_magic.",
+                        "$aoe_type"
+                    ]
                 },
                 "duration": -1,
                 "attachedTo": "$targets[0].id",
@@ -358,14 +397,14 @@
         ]
     },
     "entangle": {
-        "name": "Entangle",
+        "name": "纠缠术",
         "minTargets": 1,
         "thumbnail": "1st_Level/Entangle/Entangle02_02_Regular_Green_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -398,14 +437,14 @@
         ]
     },
     "fog_cloud": {
-        "name": "Fog Cloud",
+        "name": "云雾术",
         "minTargets": 1,
         "thumbnail": "1st_Level/Fog_Cloud/FogCloud_01_White_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 8,
@@ -427,14 +466,14 @@
         ]
     },
     "grease": {
-        "name": "Grease",
+        "name": "油腻术",
         "minTargets": 1,
         "thumbnail": "1st_Level/Grease/Grease_Dark_Brown_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 2,
@@ -456,7 +495,7 @@
         ]
     },
     "guiding_bolt": {
-        "name": "Guiding Bolt",
+        "name": "指引箭",
         "minTargets": 2,
         "thumbnail": "1st_Level/Guiding_Bolt/GuidingBolt_01_Regular_BlueYellow_Thumb.webp",
         "replicate": "first_to_all",
@@ -486,7 +525,7 @@
         ]
     },
     "hex": {
-        "name": "Hex",
+        "name": "邪咒",
         "minTargets": 1,
         "thumbnail": "Generic/Marker/MarkerHorror_02_Regular_Purple_Thumb.webp",
         "replicate": "all",
@@ -500,7 +539,10 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[0].size", 2]
+                        "arguments": [
+                            "$targets[0].size",
+                            2
+                        ]
                     }
                 }
             },
@@ -519,7 +561,7 @@
         ]
     },
     "hunters_mark": {
-        "name": "Hunter's Mark",
+        "name": "猎人印记",
         "minTargets": 1,
         "thumbnail": "1st_Level/Hunters_Mark/HuntersMark_01_Regular_Green_Pulse_Thumb.webp",
         "replicate": "all",
@@ -546,14 +588,17 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[0].size", 0.5]
+                        "arguments": [
+                            "$targets[0].size",
+                            0.5
+                        ]
                     }
                 }
             }
         ]
     },
     "ice_knife": {
-        "name": "Ice Knife",
+        "name": "冰刃术",
         "minTargets": 2,
         "thumbnail": "Generic/Ice/IceSpikesRadialBurst_01_Regular_White_Thumb.webp",
         "target": "first_to_all",
@@ -561,7 +606,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 1,
@@ -592,7 +637,7 @@
         ]
     },
     "magic_missiles": {
-        "name": "Magic Missiles",
+        "name": "魔法飞弹",
         "minTargets": 2,
         "thumbnail": "1st_Level/Magic_Missile/MagicMissile_01_Regular_Purple_Thumb.webp",
         "replicate": "first_to_all",
@@ -610,7 +655,7 @@
         ]
     },
     "shield": {
-        "name": "Shield",
+        "name": "护盾术",
         "minTargets": 1,
         "thumbnail": "1st_Level/Shield/Shield_01_Regular_Blue_Thumb.webp",
         "replicate": "all",
@@ -624,7 +669,10 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": [1.5, "$targets[0].size"]
+                        "arguments": [
+                            1.5,
+                            "$targets[0].size"
+                        ]
                     }
                 }
             },
@@ -639,7 +687,10 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": [1.5, "$targets[0].size"]
+                        "arguments": [
+                            1.5,
+                            "$targets[0].size"
+                        ]
                     }
                 }
             }
@@ -656,7 +707,7 @@
         ]
     },
     "shield_of_faith": {
-        "name": "Shield of Faith",
+        "name": "信仰护盾",
         "thumbnail": "Generic/Marker/MarkerShieldRampart01_01_Regular_Orange_Thumb.webp",
         "minTargets": 1,
         "replicate": "all",
@@ -688,20 +739,26 @@
         ]
     },
     "sleep": {
-        "name": "Sleep",
+        "name": "睡眠术",
         "minTargets": 1,
         "thumbnail": "1st_Level/Sleep/SleepSymbol01_01_Dark_Pink_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "dark_pink",
                 "content": [
-                    { "value": "dark_pink", "label": "Dark Pink" },
-                    { "value": "regular_pink", "label": "Regular Pink" }
+                    {
+                        "value": "dark_pink",
+                        "label": "深粉"
+                    },
+                    {
+                        "value": "regular_pink",
+                        "label": "常规粉色"
+                    }
                 ]
             }
         ],
@@ -710,7 +767,10 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["sleep.symbol.", "$color"]
+                    "arguments": [
+                        "sleep.symbol.",
+                        "$color"
+                    ]
                 },
                 "duration": -1,
                 "attachedTo": "$targets[0].id",
@@ -723,7 +783,7 @@
         ]
     },
     "witch_bolt": {
-        "name": "Witch Bolt",
+        "name": "巫术箭",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "1st_Level/Witch_Bolt/WitchBolt_01_Regular_Blue_Thumb.webp",
@@ -747,28 +807,46 @@
         ]
     },
     "cloud_of_daggers": {
-        "name": "Cloud of Daggers",
+        "name": "匕首云",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Cloud_Of_Daggers/CloudOfDaggers_01_Light_Blue_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "light_blue",
                 "content": [
-                    { "value": "light_blue", "label": "Light Blue" },
-                    { "value": "light_green", "label": "Light Green" },
-                    { "value": "light_purple", "label": "Light Purple" },
-                    { "value": "light_red", "label": "Light Red" },
-                    { "value": "light_yellow", "label": "Light Yellow" },
-                    { "value": "light_orange", "label": "Light Orange" }
+                    {
+                        "value": "light_blue",
+                        "label": "浅蓝"
+                    },
+                    {
+                        "value": "light_green",
+                        "label": "浅绿"
+                    },
+                    {
+                        "value": "light_purple",
+                        "label": "浅紫"
+                    },
+                    {
+                        "value": "light_red",
+                        "label": "浅红"
+                    },
+                    {
+                        "value": "light_yellow",
+                        "label": "浅黄"
+                    },
+                    {
+                        "value": "light_orange",
+                        "label": "浅橙"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 1,
@@ -782,7 +860,10 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["cloud_of_daggers.", "$color"]
+                    "arguments": [
+                        "cloud_of_daggers.",
+                        "$color"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -794,14 +875,14 @@
         ]
     },
     "darkness": {
-        "name": "Darkness",
+        "name": "黑暗术",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Darkness/Darkness_01_Black_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 6,
@@ -810,7 +891,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": false
@@ -821,11 +902,19 @@
                 "type": "effect",
                 "id": {
                     "name": "if",
-                    "arguments": ["$transparent", "darkness.black.transparent", "darkness.black.opaque"]
+                    "arguments": [
+                        "$transparent",
+                        "darkness.black.transparent",
+                        "darkness.black.opaque"
+                    ]
                 },
                 "layer": {
                     "name": "if",
-                    "arguments": ["$transparent", null, "FOG"]
+                    "arguments": [
+                        "$transparent",
+                        null,
+                        "FOG"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -837,31 +926,58 @@
         ]
     },
     "flaming_sphere": {
-        "name": "Flaming Sphere",
+        "name": "火焰法球",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Flaming_Sphere/FlamingSphere_02_Orange_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "orange.2",
                 "content": [
-                    { "value": "blue", "label": "Blue" },
-                    { "value": "green", "label": "Green" },
-                    { "value": "orange.1", "label": "Orange" },
-                    { "value": "orange.2", "label": "Fire" },
-                    { "value": "pink", "label": "Pink" },
-                    { "value": "purple", "label": "Purple" },
-                    { "value": "red", "label": "Red" },
-                    { "value": "green_to_blue", "label": "Green to blue" },
-                    { "value": "rainbow", "label": "Rainbow" }
+                    {
+                        "value": "blue",
+                        "label": "蓝色"
+                    },
+                    {
+                        "value": "green",
+                        "label": "绿色"
+                    },
+                    {
+                        "value": "orange.1",
+                        "label": "橙色"
+                    },
+                    {
+                        "value": "orange.2",
+                        "label": "火焰"
+                    },
+                    {
+                        "value": "pink",
+                        "label": "粉色"
+                    },
+                    {
+                        "value": "purple",
+                        "label": "紫色"
+                    },
+                    {
+                        "value": "red",
+                        "label": "红色"
+                    },
+                    {
+                        "value": "green_to_blue",
+                        "label": "绿转蓝"
+                    },
+                    {
+                        "value": "rainbow",
+                        "label": "彩虹"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 1,
@@ -870,7 +986,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": false
@@ -885,7 +1001,11 @@
                         "flaming_sphere.",
                         {
                             "name": "if",
-                            "arguments": ["$transparent", "transparent.", "opaque."]
+                            "arguments": [
+                                "$transparent",
+                                "transparent.",
+                                "opaque."
+                            ]
                         },
                         "$color"
                     ]
@@ -900,7 +1020,7 @@
         ]
     },
     "misty_step": {
-        "name": "Misty Step",
+        "name": "雾步",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "2nd_Level/Misty_Step/MistyStep_02_Regular_Blue_Thumb.webp",
@@ -921,7 +1041,9 @@
                 "id": "hide",
                 "delay": 1000,
                 "for": "GM",
-                "arguments": ["$targets[0].id"]
+                "arguments": [
+                    "$targets[0].id"
+                ]
             },
             {
                 "type": "effect",
@@ -937,19 +1059,24 @@
                 "id": "move",
                 "delay": 1500,
                 "for": "GM",
-                "arguments": ["$targets[0].id", "$targets[1].position"]
+                "arguments": [
+                    "$targets[0].id",
+                    "$targets[1].position"
+                ]
             },
             {
                 "type": "action",
                 "id": "show",
                 "delay": 3000,
                 "for": "GM",
-                "arguments": ["$targets[0].id"]
+                "arguments": [
+                    "$targets[0].id"
+                ]
             }
         ]
     },
     "gust_of_wind": {
-        "name": "Gust of Wind",
+        "name": "狂风术",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "2nd_Level/Gust_Of_Wind/GustOfWind_01_White_Thumb.webp",
@@ -957,7 +1084,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Length (in cells)",
+                "name": "长度（格）",
                 "id": "length",
                 "type": "number",
                 "defaultValue": 12,
@@ -977,7 +1104,10 @@
                     "source": "$targets[0].position",
                     "rotation": {
                         "name": "rotation",
-                        "arguments": ["$targets[0].position", "$targets[1].position"]
+                        "arguments": [
+                            "$targets[0].position",
+                            "$targets[1].position"
+                        ]
                     },
                     "size": "$length"
                 }
@@ -985,20 +1115,26 @@
         ]
     },
     "hold_person": {
-        "name": "Hold Person",
+        "name": "定身术",
         "minTargets": 1,
         "thumbnail": "Generic/Marker/MarkerChainSpectralStandard01_02_Regular_Blue_Complete_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "blue",
                 "content": [
-                    { "value": "blue", "label": "Blue" },
-                    { "value": "red", "label": "Red" }
+                    {
+                        "value": "blue",
+                        "label": "蓝色"
+                    },
+                    {
+                        "value": "red",
+                        "label": "红色"
+                    }
                 ]
             }
         ],
@@ -1007,14 +1143,21 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["generic.marker.simple.", "$color", ".complete"]
+                    "arguments": [
+                        "generic.marker.simple.",
+                        "$color",
+                        ".complete"
+                    ]
                 },
                 "layer": "PROP",
                 "effectProperties": {
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[0].size", 2]
+                        "arguments": [
+                            "$targets[0].size",
+                            2
+                        ]
                     }
                 }
             },
@@ -1025,7 +1168,10 @@
                     "arguments": [
                         {
                             "name": "equals",
-                            "arguments": ["$color", "blue"]
+                            "arguments": [
+                                "$color",
+                                "blue"
+                            ]
                         },
                         "generic.marker.spectral_chain.loop",
                         "generic.marker.red_chain.loop"
@@ -1037,21 +1183,24 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[0].size", 1.5]
+                        "arguments": [
+                            "$targets[0].size",
+                            1.5
+                        ]
                     }
                 }
             }
         ]
     },
     "moonbeam": {
-        "name": "Moonbeam",
+        "name": "月光术",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Moonbeam/Moonbeam_01_Regular_Blue_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 2,
@@ -1082,7 +1231,7 @@
         ]
     },
     "scorching_ray": {
-        "name": "Scorching Ray",
+        "name": "灼热射线",
         "minTargets": 2,
         "thumbnail": "2nd_Level/Scorching_Ray/ScorchingRay_01_Regular_Orange_Thumb.webp",
         "replicate": "first_to_all",
@@ -1100,14 +1249,14 @@
         ]
     },
     "shatter": {
-        "name": "Shatter",
+        "name": "粉碎术",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Shatter/Shatter_01_Blue_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -1129,14 +1278,14 @@
         ]
     },
     "silence": {
-        "name": "Silence",
+        "name": "寂静术",
         "minTargets": 1,
         "thumbnail": "Generic/Marker/MarkerMute_03_Dark_Red_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 8
@@ -1156,7 +1305,7 @@
         ]
     },
     "spiritual_weapon": {
-        "name": "Spiritual Weapon",
+        "name": "灵体武器",
         "minTargets": 1,
         "maxTargets": 1,
         "thumbnail": "2nd_Level/Spiritual_Weapon/SpiritualWeapon_GreatAxe01_02_Spectral_Green_Thumb.webp",
@@ -1164,47 +1313,143 @@
         "copy": 0,
         "parameters": [
             {
-                "name": "Weapon variant",
+                "name": "武器款式",
                 "id": "weapon_variant",
                 "type": "options",
                 "defaultValue": "spectral_green_greataxe",
                 "content": [
-                    { "value": "spectral_green_club", "label": "Spectral Green Club" },
-                    { "value": "spectral_green_dagger", "label": "Spectral Green Dagger" },
-                    { "value": "spectral_green_falchion", "label": "Spectral Green Falchion" },
-                    { "value": "spectral_green_glaive", "label": "Spectral Green Glaive" },
-                    { "value": "spectral_green_greataxe", "label": "Spectral Green Greataxe" },
-                    { "value": "spectral_green_greatclub", "label": "Spectral Green Greatclub" },
-                    { "value": "spectral_green_greatsword", "label": "Spectral Green Greatsword" },
-                    { "value": "spectral_green_halberd", "label": "Spectral Green Halberd" },
-                    { "value": "spectral_green_hammer1", "label": "Spectral Green Hammer (1)" },
-                    { "value": "spectral_green_hammer2", "label": "Spectral Green Hammer (2)" },
-                    { "value": "spectral_green_handaxe", "label": "Spectral Green Handaxe" },
-                    { "value": "spectral_green_javelin", "label": "Spectral Green Javelin" },
-                    { "value": "spectral_green_katana", "label": "Spectral Green Katana" },
-                    { "value": "regular_blue_laserspear", "label": "Regular Blue Laserspear" },
-                    { "value": "regular_blue_lasersword1", "label": "Regular Blue Lasersword1" },
-                    { "value": "regular_blue_lasersword2", "label": "Regular Blue Lasersword2" },
-                    { "value": "spectral_green_longsword", "label": "Spectral Green Longsword" },
-                    { "value": "flaming_yellow_mace", "label": "Flaming Yellow Mace" },
-                    { "value": "spectral_blue_mace", "label": "Spectral Blue Mace" },
-                    { "value": "spectral_green_mace", "label": "Spectral Green Mace" },
-                    { "value": "flaming_yellow_maul", "label": "Flaming Yellow Maul" },
-                    { "value": "spectral_blue_maul", "label": "Spectral Blue Maul" },
-                    { "value": "spectral_green_maul", "label": "Spectral Green Maul" },
-                    { "value": "spectral_green_quarterstaff", "label": "Spectral Green Quarterstaff" },
-                    { "value": "spectral_green_rapier", "label": "Spectral Green Rapier" },
-                    { "value": "spectral_green_scimitar", "label": "Spectral Green Scimitar" },
-                    { "value": "spectral_green_scythe", "label": "Spectral Green Scythe" },
-                    { "value": "spectral_green_shortsword", "label": "Spectral Green Shortsword" },
-                    { "value": "spectral_green_spear", "label": "Spectral Green Spear" },
-                    { "value": "spectral_green_trident", "label": "Spectral Green Trident" },
-                    { "value": "spectral_green_warhammer", "label": "Spectral Green Warhammer" },
-                    { "value": "spectral_green_wrench", "label": "Spectral Green Wrench" }
+                    {
+                        "value": "spectral_green_club",
+                        "label": "幽灵绿木棒"
+                    },
+                    {
+                        "value": "spectral_green_dagger",
+                        "label": "幽灵绿匕首"
+                    },
+                    {
+                        "value": "spectral_green_falchion",
+                        "label": "幽灵绿弯刀"
+                    },
+                    {
+                        "value": "spectral_green_glaive",
+                        "label": "幽灵绿长戟"
+                    },
+                    {
+                        "value": "spectral_green_greataxe",
+                        "label": "幽灵绿巨斧"
+                    },
+                    {
+                        "value": "spectral_green_greatclub",
+                        "label": "幽灵绿巨棒"
+                    },
+                    {
+                        "value": "spectral_green_greatsword",
+                        "label": "幽灵绿巨剑"
+                    },
+                    {
+                        "value": "spectral_green_halberd",
+                        "label": "幽灵绿戟斧"
+                    },
+                    {
+                        "value": "spectral_green_hammer1",
+                        "label": "幽灵绿锤(1)"
+                    },
+                    {
+                        "value": "spectral_green_hammer2",
+                        "label": "幽灵绿锤(2)"
+                    },
+                    {
+                        "value": "spectral_green_handaxe",
+                        "label": "幽灵绿手斧"
+                    },
+                    {
+                        "value": "spectral_green_javelin",
+                        "label": "幽灵绿标枪"
+                    },
+                    {
+                        "value": "spectral_green_katana",
+                        "label": "幽灵绿武士刀"
+                    },
+                    {
+                        "value": "regular_blue_laserspear",
+                        "label": "蓝色光矛"
+                    },
+                    {
+                        "value": "regular_blue_lasersword1",
+                        "label": "蓝色光剑1"
+                    },
+                    {
+                        "value": "regular_blue_lasersword2",
+                        "label": "蓝色光剑2"
+                    },
+                    {
+                        "value": "spectral_green_longsword",
+                        "label": "幽灵绿长剑"
+                    },
+                    {
+                        "value": "flaming_yellow_mace",
+                        "label": "火焰黄色钉锤"
+                    },
+                    {
+                        "value": "spectral_blue_mace",
+                        "label": "幽灵蓝钉锤"
+                    },
+                    {
+                        "value": "spectral_green_mace",
+                        "label": "幽灵绿钉锤"
+                    },
+                    {
+                        "value": "flaming_yellow_maul",
+                        "label": "火焰黄色重锤"
+                    },
+                    {
+                        "value": "spectral_blue_maul",
+                        "label": "幽灵蓝重锤"
+                    },
+                    {
+                        "value": "spectral_green_maul",
+                        "label": "幽灵绿重锤"
+                    },
+                    {
+                        "value": "spectral_green_quarterstaff",
+                        "label": "幽灵绿长棍"
+                    },
+                    {
+                        "value": "spectral_green_rapier",
+                        "label": "幽灵绿细剑"
+                    },
+                    {
+                        "value": "spectral_green_scimitar",
+                        "label": "幽灵绿弯刀"
+                    },
+                    {
+                        "value": "spectral_green_scythe",
+                        "label": "幽灵绿镰刀"
+                    },
+                    {
+                        "value": "spectral_green_shortsword",
+                        "label": "幽灵绿短剑"
+                    },
+                    {
+                        "value": "spectral_green_spear",
+                        "label": "幽灵绿长矛"
+                    },
+                    {
+                        "value": "spectral_green_trident",
+                        "label": "幽灵绿三叉戟"
+                    },
+                    {
+                        "value": "spectral_green_warhammer",
+                        "label": "幽灵绿战锤"
+                    },
+                    {
+                        "value": "spectral_green_wrench",
+                        "label": "幽灵绿扳手"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 1,
@@ -1218,7 +1463,10 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["spiritual_weapon.", "$weapon_variant"]
+                    "arguments": [
+                        "spiritual_weapon.",
+                        "$weapon_variant"
+                    ]
                 },
                 "duration": -1,
                 "effectProperties": {
@@ -1229,24 +1477,30 @@
         ]
     },
     "web": {
-        "name": "Web",
+        "name": "蜘蛛网",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Web/Web_01_White_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Mode",
+                "name": "模式",
                 "id": "mode",
                 "type": "options",
                 "defaultValue": "simple",
                 "content": [
-                    { "value": "simple", "label": "Simple" },
-                    { "value": "spiders", "label": "Spiders" }
+                    {
+                        "value": "simple",
+                        "label": "简易"
+                    },
+                    {
+                        "value": "spiders",
+                        "label": "蜘蛛"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -1255,7 +1509,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": true
@@ -1270,7 +1524,11 @@
                         "web.",
                         {
                             "name": "if",
-                            "arguments": ["$transparent", "transparent.", "opaque."]
+                            "arguments": [
+                                "$transparent",
+                                "transparent.",
+                                "opaque."
+                            ]
                         },
                         "$mode"
                     ]
@@ -1284,29 +1542,50 @@
         ]
     },
     "call_lightning": {
-        "name": "Call Lightning",
+        "name": "召雷术",
         "minTargets": 1,
         "thumbnail": "3rd_Level/Call_Lightning/CallLightning_01_Blue_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "blue",
                 "content": [
-                    { "value": "blue", "label": "Blue" },
-                    { "value": "blue_orange", "label": "Blue and orange" },
-                    { "value": "green", "label": "Green" },
-                    { "value": "pink_yellow", "label": "Pink and yellow" },
-                    { "value": "purple", "label": "Purple" },
-                    { "value": "red", "label": "Red" },
-                    { "value": "yellow", "label": "Yellow" }
+                    {
+                        "value": "blue",
+                        "label": "蓝色"
+                    },
+                    {
+                        "value": "blue_orange",
+                        "label": "蓝橙"
+                    },
+                    {
+                        "value": "green",
+                        "label": "绿色"
+                    },
+                    {
+                        "value": "pink_yellow",
+                        "label": "粉黄"
+                    },
+                    {
+                        "value": "purple",
+                        "label": "紫色"
+                    },
+                    {
+                        "value": "red",
+                        "label": "红色"
+                    },
+                    {
+                        "value": "yellow",
+                        "label": "黄色"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 25,
@@ -1315,7 +1594,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": true
@@ -1330,7 +1609,11 @@
                         "call_lightning.",
                         {
                             "name": "if",
-                            "arguments": ["$transparent", "transparent.", "opaque."]
+                            "arguments": [
+                                "$transparent",
+                                "transparent.",
+                                "opaque."
+                            ]
                         },
                         "$color"
                     ]
@@ -1344,14 +1627,14 @@
         ]
     },
     "fireball": {
-        "name": "Fireball",
+        "name": "火球术",
         "minTargets": 1,
         "thumbnail": "3rd_Level/Fireball/FireballExplosion_01_Orange_Thumb.webp",
         "replicate": "first_to_all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 10,
@@ -1366,7 +1649,10 @@
                 "id": "fireball.beam",
                 "disabled": {
                     "name": "lesser_than",
-                    "arguments": ["$targets.length", 2]
+                    "arguments": [
+                        "$targets.length",
+                        2
+                    ]
                 },
                 "effectProperties": {
                     "source": "$targets[0].position",
@@ -1382,7 +1668,10 @@
                     "arguments": [
                         {
                             "name": "lesser_than",
-                            "arguments": ["$targets.length", 2]
+                            "arguments": [
+                                "$targets.length",
+                                2
+                            ]
                         },
                         null,
                         3000
@@ -1394,7 +1683,10 @@
                         "arguments": [
                             {
                                 "name": "lesser_than",
-                                "arguments": ["$targets.length", 2]
+                                "arguments": [
+                                    "$targets.length",
+                                    2
+                                ]
                             },
                             "$targets[0].position",
                             "$targets[1].position"
@@ -1406,7 +1698,7 @@
         ]
     },
     "lightning_bolt": {
-        "name": "Lightning Bolt",
+        "name": "闪电束",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "3rd_Level/Lightning_Bolt/LightningBolt_01_Regular_Blue_Thumb.webp",
@@ -1415,7 +1707,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Length (in cells)",
+                "name": "长度（格）",
                 "id": "length",
                 "type": "number",
                 "defaultValue": 20,
@@ -1433,7 +1725,10 @@
                     "source": "$targets[0].position",
                     "rotation": {
                         "name": "rotation",
-                        "arguments": ["$targets[0].position", "$targets[1].position"]
+                        "arguments": [
+                            "$targets[0].position",
+                            "$targets[1].position"
+                        ]
                     },
                     "size": "$length"
                 }
@@ -1441,7 +1736,7 @@
         ]
     },
     "wind_wall": {
-        "name": "Wind Wall",
+        "name": "风墙术",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "3rd_Level/Wind_Wall/WindWall_01_Thumb.webp",
@@ -1449,7 +1744,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": true
@@ -1460,7 +1755,11 @@
                 "type": "effect",
                 "id": {
                     "name": "if",
-                    "arguments": ["$transparent", "wind_wall.transparent", "wind_wall.opaque"]
+                    "arguments": [
+                        "$transparent",
+                        "wind_wall.transparent",
+                        "wind_wall.opaque"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -1473,24 +1772,30 @@
         ]
     },
     "sleet_storm": {
-        "name": "Sleet Storm",
+        "name": "冻雨暴",
         "minTargets": 1,
         "thumbnail": "3rd_Level/Sleet_Storm/SleetStorm_01_Blue_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Mode",
+                "name": "模式",
                 "id": "mode",
                 "type": "options",
                 "defaultValue": "1",
                 "content": [
-                    { "value": "1", "label": "Mode #1" },
-                    { "value": "2", "label": "Mode #2" }
+                    {
+                        "value": "1",
+                        "label": "模式 #1"
+                    },
+                    {
+                        "value": "2",
+                        "label": "模式 #2"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 5,
@@ -1499,7 +1804,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": true
@@ -1514,7 +1819,11 @@
                         "sleet_storm.",
                         {
                             "name": "if",
-                            "arguments": ["$transparent", "transparent", "opaque"]
+                            "arguments": [
+                                "$transparent",
+                                "transparent",
+                                "opaque"
+                            ]
                         },
                         {
                             "name": "if",
@@ -1522,7 +1831,10 @@
                                 "$transparent",
                                 {
                                     "name": "concat",
-                                    "arguments": [".", "$mode"]
+                                    "arguments": [
+                                        ".",
+                                        "$mode"
+                                    ]
                                 },
                                 ""
                             ]
@@ -1538,7 +1850,7 @@
         ]
     },
     "spirit_guardians": {
-        "name": "Spirit Guardians",
+        "name": "灵体守卫",
         "minTargets": 1,
         "thumbnail": "3rd_Level/Spirit_Guardians/SpiritGuardians_01_Light_BlueYellow_Thumb.webp",
         "replicate": "all",
@@ -1546,7 +1858,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 6,
@@ -1566,14 +1878,17 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "sum",
-                        "arguments": ["$radius", "$targets[0].size"]
+                        "arguments": [
+                            "$radius",
+                            "$targets[0].size"
+                        ]
                     }
                 }
             }
         ]
     },
     "thunder_step": {
-        "name": "Thunder Step",
+        "name": "雷霆跃步",
         "minTargets": 2,
         "maxTargets": 3,
         "for": "GM",
@@ -1583,7 +1898,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -1598,7 +1913,9 @@
                 "id": "misty_step.out",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0]
+                    "arguments": [
+                        0
+                    ]
                 },
                 "effectProperties": {
                     "size": "$targets[0].size",
@@ -1611,7 +1928,9 @@
                 "delay": 900,
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0]
+                    "arguments": [
+                        0
+                    ]
                 },
                 "effectProperties": {
                     "size": "$radius",
@@ -1625,9 +1944,14 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id"]
+                "arguments": [
+                    "$targets[0].id"
+                ]
             },
             {
                 "type": "action",
@@ -1636,9 +1960,15 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id", "$globalTargets[-1].position"]
+                "arguments": [
+                    "$targets[0].id",
+                    "$globalTargets[-1].position"
+                ]
             },
             {
                 "type": "action",
@@ -1647,7 +1977,10 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [1, -2]
+                    "arguments": [
+                        1,
+                        -2
+                    ]
                 },
                 "arguments": [
                     "$targets[0].id",
@@ -1657,7 +1990,10 @@
                             "$globalTargets[-1].position",
                             {
                                 "name": "subtract",
-                                "arguments": ["$targets[0].position", "$globalTargets[0].position"]
+                                "arguments": [
+                                    "$targets[0].position",
+                                    "$globalTargets[0].position"
+                                ]
                             }
                         ]
                     }
@@ -1670,9 +2006,14 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id"]
+                "arguments": [
+                    "$targets[0].id"
+                ]
             },
             {
                 "type": "effect",
@@ -1680,7 +2021,10 @@
                 "delay": 1000,
                 "disabled": {
                     "name": "target_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
                 "effectProperties": {
                     "size": "$globalTargets[0].size",
@@ -1690,7 +2034,7 @@
         ]
     },
     "banishment": {
-        "name": "Banishment",
+        "name": "放逐术",
         "minTargets": 2,
         "thumbnail": "Generic/Portals/Portal_Bright_Yellow_V_Thumb.webp",
         "replicate": "first_to_all",
@@ -1714,7 +2058,10 @@
                 "effectProperties": {
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[1].size", 2.5]
+                        "arguments": [
+                            "$targets[1].size",
+                            2.5
+                        ]
                     },
                     "source": "$targets[1].position"
                 }
@@ -1724,33 +2071,49 @@
                 "id": "stretch",
                 "delay": 250,
                 "for": "CASTER",
-                "arguments": ["$targets[1].id", {"x": 0.01, "y": 0.01}, 300, "EASE_IN"]
+                "arguments": [
+                    "$targets[1].id",
+                    {
+                        "x": 0.01,
+                        "y": 0.01
+                    },
+                    300,
+                    "EASE_IN"
+                ]
             },
             {
                 "type": "action",
                 "id": "hide",
                 "delay": 1000,
                 "for": "CASTER",
-                "arguments": ["$targets[1].id"]
+                "arguments": [
+                    "$targets[1].id"
+                ]
             },
             {
                 "type": "action",
                 "id": "scale",
                 "delay": 1500,
                 "for": "CASTER",
-                "arguments": ["$targets[1].id", {"x": 100, "y": 100}]
+                "arguments": [
+                    "$targets[1].id",
+                    {
+                        "x": 100,
+                        "y": 100
+                    }
+                ]
             }
         ]
     },
     "black_tentacles": {
-        "name": "Black Tentacles",
+        "name": "伊伐德黑触手",
         "minTargets": 1,
         "thumbnail": "4th_Level/Black_Tentacles/BlackTentacles_01_Dark_Purple_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -1772,7 +2135,7 @@
         ]
     },
     "dimension_door": {
-        "name": "Dimension Door",
+        "name": "次元门",
         "minTargets": 2,
         "maxTargets": 3,
         "for": "GM",
@@ -1788,12 +2151,17 @@
                 "duration": 3000,
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0]
+                    "arguments": [
+                        0
+                    ]
                 },
                 "effectProperties": {
                     "size": {
                         "name": "product",
-                        "arguments": ["$globalTargets[0].size", 2.5]
+                        "arguments": [
+                            "$globalTargets[0].size",
+                            2.5
+                        ]
                     },
                     "source": "$globalTargets[0].position"
                 }
@@ -1805,12 +2173,17 @@
                 "duration": 3000,
                 "disabled": {
                     "name": "target_in_range",
-                    "arguments": [0]
+                    "arguments": [
+                        0
+                    ]
                 },
                 "effectProperties": {
                     "size": {
                         "name": "product",
-                        "arguments": ["$globalTargets[0].size", 2.5]
+                        "arguments": [
+                            "$globalTargets[0].size",
+                            2.5
+                        ]
                     },
                     "source": "$globalTargets[-1].position"
                 }
@@ -1822,9 +2195,20 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id", {"x": 0.01, "y": 0.01}, 300, "EASE_IN"]
+                "arguments": [
+                    "$targets[0].id",
+                    {
+                        "x": 0.01,
+                        "y": 0.01
+                    },
+                    300,
+                    "EASE_IN"
+                ]
             },
             {
                 "type": "action",
@@ -1833,9 +2217,17 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [1, -2]
+                    "arguments": [
+                        1,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id", "$globalTargets[0].position", 300, "EASE_IN"]
+                "arguments": [
+                    "$targets[0].id",
+                    "$globalTargets[0].position",
+                    300,
+                    "EASE_IN"
+                ]
             },
             {
                 "type": "action",
@@ -1844,9 +2236,14 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id"]
+                "arguments": [
+                    "$targets[0].id"
+                ]
             },
             {
                 "type": "action",
@@ -1855,9 +2252,15 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id", "$globalTargets[-1].position"]
+                "arguments": [
+                    "$targets[0].id",
+                    "$globalTargets[-1].position"
+                ]
             },
             {
                 "type": "action",
@@ -1866,9 +2269,14 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id"]
+                "arguments": [
+                    "$targets[0].id"
+                ]
             },
             {
                 "type": "action",
@@ -1877,9 +2285,20 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [0, -2]
+                    "arguments": [
+                        0,
+                        -2
+                    ]
                 },
-                "arguments": ["$targets[0].id", {"x": 100, "y": 100}, 300, "EASE_OUT"]
+                "arguments": [
+                    "$targets[0].id",
+                    {
+                        "x": 100,
+                        "y": 100
+                    },
+                    300,
+                    "EASE_OUT"
+                ]
             },
             {
                 "type": "action",
@@ -1888,7 +2307,10 @@
                 "for": "CASTER",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [1, -2]
+                    "arguments": [
+                        1,
+                        -2
+                    ]
                 },
                 "arguments": [
                     "$targets[0].id",
@@ -1898,7 +2320,10 @@
                             "$globalTargets[-1].position",
                             {
                                 "name": "subtract",
-                                "arguments": ["$targets[0].position", "$globalTargets[0].position"]
+                                "arguments": [
+                                    "$targets[0].position",
+                                    "$globalTargets[0].position"
+                                ]
                             }
                         ]
                     },
@@ -1909,7 +2334,7 @@
         ]
     },
     "wall_of_fire": {
-        "name": "Wall of Fire",
+        "name": "火墙",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "4th_Level/Wall_Of_Fire/WallOfFire_01_Yellow_Thumb.webp",
@@ -1917,27 +2342,39 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "yellow",
                 "content": [
-                    { "value": "blue", "label": "Blue" },
-                    { "value": "yellow", "label": "Yellow" }
+                    {
+                        "value": "blue",
+                        "label": "蓝色"
+                    },
+                    {
+                        "value": "yellow",
+                        "label": "黄色"
+                    }
                 ]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "id": "mode",
                 "type": "options",
                 "defaultValue": "line",
                 "content": [
-                    { "value": "line", "label": "Line" },
-                    { "value": "ring", "label": "Ring" }
+                    {
+                        "value": "line",
+                        "label": "直线"
+                    },
+                    {
+                        "value": "ring",
+                        "label": "环形"
+                    }
                 ]
             },
             {
-                "name": "Ring radius (in cells)",
+                "name": "环形半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 6,
@@ -1946,7 +2383,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": true
@@ -1961,7 +2398,11 @@
                         "wall_of_fire.",
                         {
                             "name": "if",
-                            "arguments": ["$transparent", "transparent", "opaque"]
+                            "arguments": [
+                                "$transparent",
+                                "transparent",
+                                "opaque"
+                            ]
                         },
                         ".line.",
                         "$color"
@@ -1969,7 +2410,10 @@
                 },
                 "disabled": {
                     "name": "equals",
-                    "arguments": ["$mode", "ring"]
+                    "arguments": [
+                        "$mode",
+                        "ring"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -1987,7 +2431,11 @@
                         "wall_of_fire.",
                         {
                             "name": "if",
-                            "arguments": ["$transparent", "transparent", "opaque"]
+                            "arguments": [
+                                "$transparent",
+                                "transparent",
+                                "opaque"
+                            ]
                         },
                         ".ring.",
                         "$color"
@@ -1995,7 +2443,10 @@
                 },
                 "disabled": {
                     "name": "equals",
-                    "arguments": ["$mode", "line"]
+                    "arguments": [
+                        "$mode",
+                        "line"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -2007,7 +2458,7 @@
         ]
     },
     "antilife_shell": {
-        "name": "Antilife Shell",
+        "name": "反生命护罩",
         "minTargets": 1,
         "thumbnail": "5th_Level/Antilife_Shell/Antilifeshell_01_Blue_Circle_Thumb.webp",
         "replicate": "all",
@@ -2021,7 +2472,7 @@
                 "defaultValue": true
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 4,
@@ -2035,7 +2486,11 @@
                 "type": "effect",
                 "id": {
                     "name": "if",
-                    "arguments": ["$circle", "antilife_shell.circle", "antilife_shell.no_circle"]
+                    "arguments": [
+                        "$circle",
+                        "antilife_shell.circle",
+                        "antilife_shell.no_circle"
+                    ]
                 },
                 "disableHit": true,
                 "attachedTo": "$targets[0].id",
@@ -2044,33 +2499,48 @@
                     "source": "$targets[0].position",
                     "size": {
                         "name": "sum",
-                        "arguments": ["$radius", "$targets[0].size"]
+                        "arguments": [
+                            "$radius",
+                            "$targets[0].size"
+                        ]
                     }
                 }
             }
         ]
     },
     "arcane_hand": {
-        "name": "Arcane Hand",
+        "name": "奥术之手",
         "minTargets": 1,
         "thumbnail": "5th_Level/Arcane_Hand/ArcaneHand_Human_01_Idle_Purple_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Color",
+                "name": "颜色",
                 "id": "color",
                 "type": "options",
                 "defaultValue": "purple",
                 "content": [
-                    { "value": "blue", "label": "Blue" },
-                    { "value": "green", "label": "Green" },
-                    { "value": "purple", "label": "Purple" },
-                    { "value": "red", "label": "Red" }
+                    {
+                        "value": "blue",
+                        "label": "蓝色"
+                    },
+                    {
+                        "value": "green",
+                        "label": "绿色"
+                    },
+                    {
+                        "value": "purple",
+                        "label": "紫色"
+                    },
+                    {
+                        "value": "red",
+                        "label": "红色"
+                    }
                 ]
             },
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 2,
@@ -2084,7 +2554,10 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["arcane_hand.", "$color"]
+                    "arguments": [
+                        "arcane_hand.",
+                        "$color"
+                    ]
                 },
                 "duration": -1,
                 "effectProperties": {
@@ -2095,7 +2568,7 @@
         ]
     },
     "cone_of_cold": {
-        "name": "Cone of Cold",
+        "name": "寒冰锥",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "5th_Level/Cone_Of_Cold/ConeOfCold_01_Regular_Blue_Thumb.webp",
@@ -2104,7 +2577,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Length (in cells)",
+                "name": "长度（格）",
                 "id": "length",
                 "type": "number",
                 "defaultValue": 12,
@@ -2122,7 +2595,10 @@
                     "source": "$targets[0].position",
                     "rotation": {
                         "name": "rotation",
-                        "arguments": ["$targets[0].position", "$targets[1].position"]
+                        "arguments": [
+                            "$targets[0].position",
+                            "$targets[1].position"
+                        ]
                     },
                     "size": "$length"
                 }
@@ -2130,7 +2606,7 @@
         ]
     },
     "wall_of_force": {
-        "name": "Wall of Force",
+        "name": "力墙",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "5th_Level/Wall_Of_Force/WallOfForce_01_Grey_V_Thumb.webp",
@@ -2138,18 +2614,27 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Mode",
+                "name": "模式",
                 "id": "mode",
                 "type": "options",
                 "defaultValue": "line",
                 "content": [
-                    { "value": "line", "label": "Line" },
-                    { "value": "square", "label": "Square" },
-                    { "value": "ring", "label": "Ring" }
+                    {
+                        "value": "line",
+                        "label": "直线"
+                    },
+                    {
+                        "value": "square",
+                        "label": "方形"
+                    },
+                    {
+                        "value": "ring",
+                        "label": "环形"
+                    }
                 ]
             },
             {
-                "name": "Ring radius (in cells)",
+                "name": "环形半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 6,
@@ -2164,7 +2649,10 @@
                 "id": "wall_of_force.line",
                 "disabled": {
                     "name": "not_equals",
-                    "arguments": ["$mode", "line"]
+                    "arguments": [
+                        "$mode",
+                        "line"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -2185,7 +2673,10 @@
                 },
                 "disabled": {
                     "name": "equals",
-                    "arguments": ["$mode", "line"]
+                    "arguments": [
+                        "$mode",
+                        "line"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -2197,7 +2688,7 @@
         ]
     },
     "chain_lightning": {
-        "name": "Chain Lightning",
+        "name": "连锁闪电",
         "minTargets": 2,
         "maxTargets": 5,
         "thumbnail": "6th_Level/Chain_Lightning/ChainLightning_01_Regular_Blue_Primary_Thumb.webp",
@@ -2210,7 +2701,9 @@
                 "id": "chain_lightning.primary",
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [1]
+                    "arguments": [
+                        1
+                    ]
                 },
                 "effectProperties": {
                     "source": "$globalTargets[0].position",
@@ -2224,7 +2717,10 @@
                 "delay": 1000,
                 "disabled": {
                     "name": "target_not_in_range",
-                    "arguments": [2, -1]
+                    "arguments": [
+                        2,
+                        -1
+                    ]
                 },
                 "effectProperties": {
                     "source": "$globalTargets[1].position",
@@ -2235,7 +2731,7 @@
         ]
     },
     "disintegrate": {
-        "name": "Disintegrate",
+        "name": "崩解术",
         "minTargets": 2,
         "thumbnail": "6th_Level/Disintegrate/Disintegrate_01_Regular_Green01_Thumb.webp",
         "replicate": "first_to_all",
@@ -2253,14 +2749,14 @@
         ]
     },
     "whirlwind": {
-        "name": "Whirlwind",
+        "name": "龙卷风",
         "minTargets": 1,
         "thumbnail": "7th_Level/Whirlwind/Whirlwind_01_BlueGrey_01_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 3,
@@ -2282,14 +2778,14 @@
         ]
     },
     "cloudkill": {
-        "name": "Cloudkill",
+        "name": "致命云雾",
         "minTargets": 1,
         "thumbnail": "2nd_Level/Darkness/Darkness_01_Green_Thumb.webp",
         "replicate": "all",
         "copy": -1,
         "parameters": [
             {
-                "name": "Radius (in cells)",
+                "name": "半径（格）",
                 "id": "radius",
                 "type": "number",
                 "defaultValue": 8,
@@ -2298,7 +2794,7 @@
                 }
             },
             {
-                "name": "Transparency",
+                "name": "透明",
                 "id": "transparent",
                 "type": "boolean",
                 "defaultValue": false
@@ -2309,11 +2805,19 @@
                 "type": "effect",
                 "id": {
                     "name": "if",
-                    "arguments": ["$transparent", "darkness.green.transparent", "darkness.green.opaque"]
+                    "arguments": [
+                        "$transparent",
+                        "darkness.green.transparent",
+                        "darkness.green.opaque"
+                    ]
                 },
                 "layer": {
                     "name": "if",
-                    "arguments": ["$transparent", null, "FOG"]
+                    "arguments": [
+                        "$transparent",
+                        null,
+                        "FOG"
+                    ]
                 },
                 "duration": -1,
                 "disableHit": true,
@@ -2325,7 +2829,7 @@
         ]
     },
     "melee_weapon_attack": {
-        "name": "Melee Weapon Attack",
+        "name": "近战武器攻击",
         "minTargets": 1,
         "maxTargets": 2,
         "thumbnail": "Generic/Weapon_Attacks/Melee/Sword01_01_Regular_White_Thumb.webp",
@@ -2334,34 +2838,103 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Weapon variant",
+                "name": "武器款式",
                 "id": "weapon_variant",
                 "type": "options",
                 "defaultValue": "sword",
                 "content": [
-                    { "value": "club", "label": "Club" },
-                    { "value": "dagger", "label": "Dagger" },
-                    { "value": "falchion", "label": "Falchion" },
-                    { "value": "generic_slash", "label": "Generic Slash" },
-                    { "value": "generic_whirlwind", "label": "Generic Whirlwind" },
-                    { "value": "glaive", "label": "Glaive" },
-                    { "value": "great_axe", "label": "Greataxe" },
-                    { "value": "great_club", "label": "Greatclub" },
-                    { "value": "great_sword", "label": "Greatsword" },
-                    { "value": "halberd", "label": "Halberd" },
-                    { "value": "hammer", "label": "Hammer" },
-                    { "value": "hand_axe", "label": "Handaxe" },
-                    { "value": "laser_sword", "label": "Laser Sword" },
-                    { "value": "mace", "label": "Mace" },
-                    { "value": "maul", "label": "Maul" },
-                    { "value": "quarterstaff", "label": "Quarterstaff" },
-                    { "value": "rapier", "label": "Rapier" },
-                    { "value": "scimitar", "label": "Scimitar" },
-                    { "value": "shortsword", "label": "Shortsword" },
-                    { "value": "spear", "label": "Spear" },
-                    { "value": "sword", "label": "Sword" },
-                    { "value": "warhammer", "label": "Warhammer" },
-                    { "value": "wrench", "label": "Wrench" }
+                    {
+                        "value": "club",
+                        "label": "木棒"
+                    },
+                    {
+                        "value": "dagger",
+                        "label": "匕首"
+                    },
+                    {
+                        "value": "falchion",
+                        "label": "弯刀"
+                    },
+                    {
+                        "value": "generic_slash",
+                        "label": "通用斩击"
+                    },
+                    {
+                        "value": "generic_whirlwind",
+                        "label": "通用旋斩"
+                    },
+                    {
+                        "value": "glaive",
+                        "label": "长戟"
+                    },
+                    {
+                        "value": "great_axe",
+                        "label": "巨斧"
+                    },
+                    {
+                        "value": "great_club",
+                        "label": "巨棒"
+                    },
+                    {
+                        "value": "great_sword",
+                        "label": "巨剑"
+                    },
+                    {
+                        "value": "halberd",
+                        "label": "戟斧"
+                    },
+                    {
+                        "value": "hammer",
+                        "label": "锤"
+                    },
+                    {
+                        "value": "hand_axe",
+                        "label": "手斧"
+                    },
+                    {
+                        "value": "laser_sword",
+                        "label": "光剑"
+                    },
+                    {
+                        "value": "mace",
+                        "label": "钉锤"
+                    },
+                    {
+                        "value": "maul",
+                        "label": "重锤"
+                    },
+                    {
+                        "value": "quarterstaff",
+                        "label": "长棍"
+                    },
+                    {
+                        "value": "rapier",
+                        "label": "细剑"
+                    },
+                    {
+                        "value": "scimitar",
+                        "label": "弯刃剑"
+                    },
+                    {
+                        "value": "shortsword",
+                        "label": "短剑"
+                    },
+                    {
+                        "value": "spear",
+                        "label": "长矛"
+                    },
+                    {
+                        "value": "sword",
+                        "label": "长剑"
+                    },
+                    {
+                        "value": "warhammer",
+                        "label": "战锤"
+                    },
+                    {
+                        "value": "wrench",
+                        "label": "扳手"
+                    }
                 ]
             }
         ],
@@ -2370,28 +2943,43 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["generic.weapon_attacks.melee.single.", "$weapon_variant"]
+                    "arguments": [
+                        "generic.weapon_attacks.melee.single.",
+                        "$weapon_variant"
+                    ]
                 },
                 "forceVariant": {
                     "name": "random_int",
-                    "arguments": [0, 6]
+                    "arguments": [
+                        0,
+                        6
+                    ]
                 },
                 "effectProperties": {
                     "source": "$targets[0].position",
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[0].size", 2]
+                        "arguments": [
+                            "$targets[0].size",
+                            2
+                        ]
                     },
                     "rotation": {
                         "name": "if",
                         "arguments": [
                             {
                                 "name": "greater_than",
-                                "arguments": ["$targets.length", 1]
+                                "arguments": [
+                                    "$targets.length",
+                                    1
+                                ]
                             },
                             {
                                 "name": "rotation",
-                                "arguments": ["$targets[0].position", "$targets[1].position"]
+                                "arguments": [
+                                    "$targets[0].position",
+                                    "$targets[1].position"
+                                ]
                             },
                             0
                         ]
@@ -2401,46 +2989,130 @@
         ]
     },
     "ranged_weapon_attack": {
-        "name": "Ranged Weapon Attack",
+        "name": "远程武器攻击",
         "minTargets": 2,
         "thumbnail": "Generic/Weapon_Attacks/Ranged/Arrow01_01_Regular_White_Thumb.webp",
         "replicate": "first_to_all",
         "copy": 200,
         "parameters": [
             {
-                "name": "Weapon variant",
+                "name": "武器款式",
                 "id": "weapon_variant",
                 "type": "options",
                 "defaultValue": "arrow.white",
                 "content": [
-                    { "value": "arrow.green", "label": "Green Arrow" },
-                    { "value": "arrow.white", "label": "White Arrow" },
-                    { "value": "arrow.blue", "label": "Blue Arrow" },
-                    { "value": "bolt", "label": "Bolt" },
-                    { "value": "boulder_toss", "label": "Boulder" },
-                    { "value": "bullet.orange", "label": "Orange Bullet" },
-                    { "value": "bullet.large_orange", "label": "Large Orange Bullet" },
-                    { "value": "bullet.blue", "label": "Blue Bullet" },
-                    { "value": "dagger.throw", "label": "Dagger" },
-                    { "value": "laser_shot.blue", "label": "Blue Laser" },
-                    { "value": "laser_shot.green", "label": "Green Laser" },
-                    { "value": "laser_shot.orange", "label": "Orange Laser" },
-                    { "value": "laser_shot.red", "label": "Red Laser" },
-                    { "value": "laser_sword.blue", "label": "Blue Laser Sword" },
-                    { "value": "laser_sword.red", "label": "Red Laser Sword" },
-                    { "value": "cannon_ball", "label": "Cannon Ball" },
-                    { "value": "barrel_toss.metal", "label": "Metal Barrel" },
-                    { "value": "barrel_toss.wooden", "label": "Wooden Barrel" },
-                    { "value": "missile.blue", "label": "Blue Missile" },
-                    { "value": "missile.white", "label": "White Missile" },
-                    { "value": "missile.wide_white", "label": "Wide White Missile" },
-                    { "value": "missile.purple_pink", "label": "Purple/Pink Missile" },
-                    { "value": "shield.throw", "label": "Shield" },
-                    { "value": "shield.complete", "label": "Shield (Returning)" },
-                    { "value": "snipe", "label": "Snipe" },
-                    { "value": "snowball", "label": "Snowball" },
-                    { "value": "throw.bomb", "label": "Thrown Bomb" },
-                    { "value": "throw.flask", "label": "Thrown Flask" }
+                    {
+                        "value": "arrow.green",
+                        "label": "绿色箭矢"
+                    },
+                    {
+                        "value": "arrow.white",
+                        "label": "白色箭矢"
+                    },
+                    {
+                        "value": "arrow.blue",
+                        "label": "蓝色箭矢"
+                    },
+                    {
+                        "value": "bolt",
+                        "label": "弩箭"
+                    },
+                    {
+                        "value": "boulder_toss",
+                        "label": "巨石"
+                    },
+                    {
+                        "value": "bullet.orange",
+                        "label": "橙色子弹"
+                    },
+                    {
+                        "value": "bullet.large_orange",
+                        "label": "大号橙色子弹"
+                    },
+                    {
+                        "value": "bullet.blue",
+                        "label": "蓝色子弹"
+                    },
+                    {
+                        "value": "dagger.throw",
+                        "label": "匕首"
+                    },
+                    {
+                        "value": "laser_shot.blue",
+                        "label": "蓝色激光"
+                    },
+                    {
+                        "value": "laser_shot.green",
+                        "label": "绿色激光"
+                    },
+                    {
+                        "value": "laser_shot.orange",
+                        "label": "橙色激光"
+                    },
+                    {
+                        "value": "laser_shot.red",
+                        "label": "红色激光"
+                    },
+                    {
+                        "value": "laser_sword.blue",
+                        "label": "蓝色光剑"
+                    },
+                    {
+                        "value": "laser_sword.red",
+                        "label": "红色光剑"
+                    },
+                    {
+                        "value": "cannon_ball",
+                        "label": "炮弹"
+                    },
+                    {
+                        "value": "barrel_toss.metal",
+                        "label": "金属桶"
+                    },
+                    {
+                        "value": "barrel_toss.wooden",
+                        "label": "木桶"
+                    },
+                    {
+                        "value": "missile.blue",
+                        "label": "蓝色导弹"
+                    },
+                    {
+                        "value": "missile.white",
+                        "label": "白色导弹"
+                    },
+                    {
+                        "value": "missile.wide_white",
+                        "label": "宽白导弹"
+                    },
+                    {
+                        "value": "missile.purple_pink",
+                        "label": "紫粉导弹"
+                    },
+                    {
+                        "value": "shield.throw",
+                        "label": "盾牌"
+                    },
+                    {
+                        "value": "shield.complete",
+                        "label": "回旋盾"
+                    },
+                    {
+                        "value": "snipe",
+                        "label": "狙击"
+                    },
+                    {
+                        "value": "snowball",
+                        "label": "雪球"
+                    },
+                    {
+                        "value": "throw.bomb",
+                        "label": "投掷炸弹"
+                    },
+                    {
+                        "value": "throw.flask",
+                        "label": "投掷烧瓶"
+                    }
                 ]
             }
         ],
@@ -2449,18 +3121,21 @@
                 "type": "effect",
                 "id": {
                     "name": "concat",
-                    "arguments": ["generic.weapon_attacks.ranged.", "$weapon_variant"]
+                    "arguments": [
+                        "generic.weapon_attacks.ranged.",
+                        "$weapon_variant"
+                    ]
                 },
                 "effectProperties": {
                     "source": "$targets[0].position",
                     "destination": "$targets[1].position",
-                    "copies":   "$targets[1].count"
+                    "copies": "$targets[1].count"
                 }
             }
         ]
     },
     "bardic_inspiration": {
-        "name": "Bardic Inspiration",
+        "name": "吟游激励",
         "minTargets": 1,
         "replicate": "first_to_all",
         "copy": -1,
@@ -2491,7 +3166,7 @@
         "thumbnail": "1st_Level/Bardic_Inspiration/BardicInspiration_01_Regular_GreenOrange_Thumb.webp"
     },
     "sneak_attack": {
-        "name": "Sneak Attack",
+        "name": "潜袭",
         "minTargets": 1,
         "thumbnail": "1st_Level/Sneak_Attack/Sneak_Attack_Dark_Green_Thumb.webp",
         "replicate": "all",
@@ -2508,7 +3183,7 @@
         ]
     },
     "divine_smite": {
-        "name": "Divine Smite",
+        "name": "神圣惩击",
         "minTargets": 2,
         "maxTargets": 2,
         "thumbnail": "2nd_Level/Divine_Smite/DivineSmite_01_Regular_BlueYellow_Caster_Thumb.webp",
@@ -2536,7 +3211,7 @@
         ]
     },
     "summon": {
-        "name": "Summon",
+        "name": "召唤术",
         "minTargets": 1,
         "thumbnail": "Generic/Magic_Signs/Conjuration_01_Yellow_Circle_Thumb.webp",
         "replicate": "all",
@@ -2544,7 +3219,7 @@
         "copy": -1,
         "parameters": [
             {
-                "name": "Token",
+                "name": "召唤代币",
                 "id": "tokens",
                 "type": "asset",
                 "defaultValue": null,
@@ -2569,18 +3244,25 @@
                     "arguments": [
                         {
                             "name": "not",
-                            "arguments": ["$caster"]
+                            "arguments": [
+                                "$caster"
+                            ]
                         },
                         {
                             "name": "target_not_in_range",
-                            "arguments": [0]
+                            "arguments": [
+                                0
+                            ]
                         }
                     ]
                 },
                 "effectProperties": {
                     "size": {
                         "name": "product",
-                        "arguments": ["$targets[0].size", 2]
+                        "arguments": [
+                            "$targets[0].size",
+                            2
+                        ]
                     },
                     "source": "$targets[0].position"
                 }
@@ -2591,7 +3273,11 @@
                 "zIndex": 5,
                 "delay": {
                     "name": "if",
-                    "arguments": ["$caster", null, 1000]
+                    "arguments": [
+                        "$caster",
+                        null,
+                        1000
+                    ]
                 },
                 "disabled": {
                     "name": "and",
@@ -2599,14 +3285,18 @@
                         "$caster",
                         {
                             "name": "target_in_range",
-                            "arguments": [0]
+                            "arguments": [
+                                0
+                            ]
                         }
                     ]
                 },
                 "effectProperties": {
                     "size": {
                         "name": "token_size",
-                        "arguments": ["$tokens[0]"]
+                        "arguments": [
+                            "$tokens[0]"
+                        ]
                     },
                     "source": "$targets[0].position"
                 }
@@ -2617,7 +3307,11 @@
                 "zIndex": 4,
                 "delay": {
                     "name": "if",
-                    "arguments": ["$caster", 1500, 2500]
+                    "arguments": [
+                        "$caster",
+                        1500,
+                        2500
+                    ]
                 },
                 "disabled": {
                     "name": "and",
@@ -2625,14 +3319,18 @@
                         "$caster",
                         {
                             "name": "target_in_range",
-                            "arguments": [0]
+                            "arguments": [
+                                0
+                            ]
                         }
                     ]
                 },
                 "effectProperties": {
                     "size": {
                         "name": "token_size",
-                        "arguments": ["$tokens[0]"]
+                        "arguments": [
+                            "$tokens[0]"
+                        ]
                     },
                     "source": "$targets[0].position"
                 }
@@ -2643,7 +3341,11 @@
                 "zIndex": 3,
                 "delay": {
                     "name": "if",
-                    "arguments": ["$caster", 2000, 3000]
+                    "arguments": [
+                        "$caster",
+                        2000,
+                        3000
+                    ]
                 },
                 "disabled": {
                     "name": "and",
@@ -2651,14 +3353,18 @@
                         "$caster",
                         {
                             "name": "target_in_range",
-                            "arguments": [0]
+                            "arguments": [
+                                0
+                            ]
                         }
                     ]
                 },
                 "effectProperties": {
                     "size": {
                         "name": "token_size",
-                        "arguments": ["$tokens[0]"]
+                        "arguments": [
+                            "$tokens[0]"
+                        ]
                     },
                     "source": "$targets[0].position"
                 }
@@ -2681,7 +3387,9 @@
                         "$caster",
                         {
                             "name": "target_in_range",
-                            "arguments": [0]
+                            "arguments": [
+                                0
+                            ]
                         }
                     ]
                 },

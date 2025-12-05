@@ -24,9 +24,9 @@ export default function AssetPicker(props: AssetPickerProps) {
 
     const title = useMemo(() => {
         if (props.value.length === 0) {
-            return "Select asset";
+            return "选择素材";
         }
-        return `Select asset (${props.value.map(asset => asset.name).join(", ")})`;
+        return `选择素材（${props.value.map(asset => asset.name).join(", ")}）`;
     }, [props.value]);
 
     return <Button

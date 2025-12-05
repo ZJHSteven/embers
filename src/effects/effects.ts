@@ -254,7 +254,7 @@ export function doEffect(effectName: string, effect?: Effect) {
 
         if (effect.type === "TARGET" || effect.type === "WALL") {
             if (targets.length < 2) {
-                OBR.notification.show(`Embers: The effect "${effectName}" requires at least 2 targets`, "ERROR");
+                OBR.notification.show(`余烬：效果 “${effectName}” 需要至少 2 个目标`, "ERROR");
                 return;
             }
 
@@ -275,7 +275,7 @@ export function doEffect(effectName: string, effect?: Effect) {
         }
         else if (effect.type === "CIRCLE") {
             if (targets.length < 1) {
-                OBR.notification.show(`Embers: The effect "${effectName}" requires at least 1 target`, "ERROR");
+                OBR.notification.show(`余烬：效果 “${effectName}” 需要至少 1 个目标`, "ERROR");
                 return;
             }
 
@@ -301,7 +301,7 @@ export function doEffect(effectName: string, effect?: Effect) {
         }
         else if (effect.type === "CONE") {
             if (targets.length != 2) {
-                OBR.notification.show(`Embers: The effect "${effectName}" requires exactly 2 targets`, "ERROR");
+                OBR.notification.show(`余烬：效果 “${effectName}” 需要恰好 2 个目标`, "ERROR");
                 return;
             }
 
