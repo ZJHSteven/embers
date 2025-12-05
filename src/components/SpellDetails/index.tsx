@@ -20,24 +20,26 @@ import { getSpell } from "../../effects/spells";
 import { toolMetadataSelectedSpell } from "../../effectsTool";
 import { useOBR } from "../../react-obr/providers";
 
+// 文件说明：展示当前选中法术的缩略图、参数与限制，并允许直接修改参数值，方便施法前快速确认。
+
 function replicationValue(replicationValue: ReplicationType) {
     if (replicationValue === "no") {
-        return "None";
+        return "不复制（使用完整目标列表）";
     } else if (replicationValue === "all") {
-        return "All";
+        return "对每个目标重复播放";
     } else if (replicationValue === "first_to_all") {
-        return "Origin to others";
+        return "起点到其他目标";
     }
     return "?";
 }
 
 function copyValue(copyDelay: number) {
     if (copyDelay < 0) {
-        return "None";
+        return "同时播放";
     } else if (copyDelay === 0) {
-        return "Instant";
+        return "立即播放";
     } else if (copyDelay > 0) {
-        return `Delayed (${copyDelay}ms)`;
+        return `逐次播放（间隔 ${copyDelay}ms）`;
     }
     return "?";
 }
@@ -239,11 +241,11 @@ export default function SpellDetails() {
                 variant="h6"
                 className="title spellbook-options"
             >
-                Spell Details
+                当前法术详情
             </Typography>
             {!selectedSpell ? (
                 <Typography variant="body2" sx={{ m: 1, mb: 0 }}>
-                    No active spells. Select or add one from above! 🧙‍♂️🔥
+                    尚未选择法术，请在上方法术书或选择器中选取/新增一个。🧙‍♂️🔥
                 </Typography>
             ) : (
                 <>
@@ -301,19 +303,19 @@ export default function SpellDetails() {
                         />
                         {selectedSpell.minTargets != undefined && (
                             <DetailRow
-                                label="Minimum number of targets"
+                                label="最少目标数"
                                 value={selectedSpell.minTargets.toString()}
                             />
                         )}
                         {selectedSpell.maxTargets != undefined && (
                             <DetailRow
-                                label="Maximum number of targets"
+                                label="最多目标数"
                                 value={selectedSpell.maxTargets.toString()}
                             />
                         )}
                         {selectedSpell.replicate && (
                             <DetailRow
-                                label="Replication mode"
+                                label="复制模式"
                                 value={replicationValue(
                                     selectedSpell.replicate
                                 )}
@@ -321,7 +323,7 @@ export default function SpellDetails() {
                         )}
                         {selectedSpell.copy != undefined && (
                             <DetailRow
-                                label="Copy mode"
+                                label="播放间隔"
                                 value={copyValue(selectedSpell.copy)}
                             />
                         )}

@@ -40,6 +40,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Spell } from "../types/spells";
 import { useOBR } from "../react-obr/providers";
 
+// 文件说明：法术书界面，提供分组管理、导入导出与一键施放功能，所有可见文案已本地化。
 type ModalType =
     | "create-spell-group"
     | "add-spell"
@@ -81,7 +82,7 @@ export default function SpellBook() {
 
     const setGroups = useCallback((value: Record<string, string[]> | null) => {
         if (value == null) {
-            OBR.notification.show("Invalid spellbook json", "ERROR");
+            OBR.notification.show("法术书 JSON 无效", "ERROR");
             return;
         }
         localStorage.setItem(
@@ -89,7 +90,7 @@ export default function SpellBook() {
             JSON.stringify(value)
         );
         _setGroups(value);
-        OBR.notification.show("Successfully imported spellbook", "SUCCESS");
+        OBR.notification.show("法术书导入成功", "SUCCESS");
     }, []);
 
     const closeModal = () => {
@@ -249,9 +250,9 @@ export default function SpellBook() {
                     color="text.primary"
                     className="title spellbook-options"
                 >
-                    <span>Spell Books</span>
+                    <span>法术书</span>
                     {editing && <>
-                        <Tooltip title="Add a new spell group">
+                        <Tooltip title="新增法术分组">
                             <IconButton
                                 size="small"
                                 sx={{ ml: 1 }}
@@ -263,7 +264,7 @@ export default function SpellBook() {
                                 <FaCirclePlus />
                             </IconButton>
                         </Tooltip>
-                        <Tooltip title="Import your spellbook">
+                        <Tooltip title="导入法术书">
                             <IconButton
                                 size="small"
                                 sx={{ ml: 1 }}
@@ -273,7 +274,7 @@ export default function SpellBook() {
                             </IconButton>
                         </Tooltip>
 
-                        <Tooltip title="Download your spellbook">
+                        <Tooltip title="下载当前法术书">
                             <IconButton
                                 size="small"
                                 sx={{ ml: 1 }}
@@ -290,7 +291,7 @@ export default function SpellBook() {
                     </>}
                 </Typography>
                 {editing && (
-                    <Tooltip title="Save changes">
+                    <Tooltip title="保存更改">
                         <IconButton
                             className="clickable"
                             size="small"
@@ -301,7 +302,7 @@ export default function SpellBook() {
                     </Tooltip>
                 )}
                 {!editing && (
-                    <Tooltip title="Edit your spellbook">
+                    <Tooltip title="编辑法术书">
                         <IconButton
                             className="clickable"
                             size="small"
@@ -333,7 +334,7 @@ export default function SpellBook() {
 
                             {editing && (
                                 <>
-                                    <Tooltip title="Add spell to this group">
+                                    <Tooltip title="向此分组添加法术">
                                         <IconButton
                                             component="div"
                                             size="small"
@@ -348,7 +349,7 @@ export default function SpellBook() {
                                         </IconButton>
                                     </Tooltip>
 
-                                    <Tooltip title="Change the name of this group">
+                                    <Tooltip title="重命名此分组">
                                         <IconButton
                                             component="div"
                                             size="small"
@@ -364,7 +365,7 @@ export default function SpellBook() {
                                         </IconButton>
                                     </Tooltip>
 
-                                    <Tooltip title="Delete this spell group">
+                                    <Tooltip title="删除此分组">
                                         <IconButton
                                             component="div"
                                             size="small"
@@ -388,7 +389,7 @@ export default function SpellBook() {
 
                                     <Box className="up-down-arrows" display="flex" alignItems="center">
                                         {index !== 0 && (
-                                            <Tooltip title="Move up">
+                                            <Tooltip title="上移分组">
                                                 <IconButton
                                                     component="div"
                                                     size="small"
@@ -403,7 +404,7 @@ export default function SpellBook() {
                                             </Tooltip>
                                         )}
                                         {index !== Object.keys(groups).length - 1 && (
-                                            <Tooltip title="Move down">
+                                            <Tooltip title="下移分组">
                                                 <IconButton
                                                     component="div"
                                                     size="small"
@@ -446,7 +447,7 @@ export default function SpellBook() {
                                         </div>
                                         <div className="spellgroup-item-actions">
                                             {editing && (
-                                                <Tooltip title="Remove this spell">
+                                                <Tooltip title="移除该法术">
                                                     <IconButton
                                                         size="small"
                                                         sx={{ ml: 1 }}
@@ -468,13 +469,13 @@ export default function SpellBook() {
 
             {Object.keys(groups).length < 1 && (
                 <Typography variant="body2" textAlign={"center"}>
-                    No spell groups found.
+                    还没有创建任何法术分组。
                     <br />
                     <span
                         className="underlined clickable"
                         onClick={() => setModalOpened("create-spell-group")}
                     >
-                        Add a new spell group.
+                        点击这里创建新的法术分组。
                     </span>
                 </Typography>
             )}
@@ -487,12 +488,12 @@ export default function SpellBook() {
                 maxWidth="sm"
             >
                 <DialogTitle>
-                    Create new spell group
+                    创建新法术分组
                 </DialogTitle>
 
                 <DialogContent>
                     <Typography variant="body1" gutterBottom>
-                        Please choose a name for this spell group:
+                        请为该法术分组命名：
                     </Typography>
                     <TextField
                         fullWidth
@@ -501,20 +502,20 @@ export default function SpellBook() {
                         variant="outlined"
                         value={groupName}
                         onChange={(event) => setGroupName(event.target.value)}
-                        placeholder="Spell group name"
+                        placeholder="分组名称"
                     />
                 </DialogContent>
 
                 <DialogActions sx={{ justifyContent: "space-between", padding: "2rem" }}>
                     <Button variant="outlined" color="inherit" onClick={closeModal}>
-                        Cancel
+                        取消
                     </Button>
                     <Button
                         variant="contained"
                         color="primary"
                         onClick={() => confirmGroupName(groupName)}
                     >
-                        Confirm
+                        确认
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -527,12 +528,12 @@ export default function SpellBook() {
                 maxWidth="sm"
             >
                 <DialogTitle>
-                    Edit spell group name
+                    重命名法术分组
                 </DialogTitle>
 
                 <DialogContent>
                     <Typography variant="body1" gutterBottom>
-                        Please choose a name for this spell group:
+                        请为该法术分组命名：
                     </Typography>
                     <TextField
                         fullWidth
@@ -541,20 +542,20 @@ export default function SpellBook() {
                         variant="outlined"
                         value={newGroupName}
                         onChange={(event) => setNewGroupName(event.target.value)}
-                        placeholder="Spell group name"
+                        placeholder="分组名称"
                     />
                 </DialogContent>
 
                 <DialogActions sx={{ justifyContent: "space-between", padding: "2rem" }}>
                     <Button variant="outlined" color="inherit" onClick={closeModal}>
-                        Cancel
+                        取消
                     </Button>
                     <Button
                         variant="contained"
                         color="primary"
                         onClick={() => editGroupName(groupName, newGroupName)}
                     >
-                        Confirm
+                        确认
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -567,25 +568,25 @@ export default function SpellBook() {
                 maxWidth="sm"
             >
                 <DialogTitle>
-                    Delete spell group
+                    删除法术分组
                 </DialogTitle>
 
                 <DialogContent>
                     <Typography variant="body1" gutterBottom>
-                        Are you sure you want to delete this spell group?
+                        确定要删除这个法术分组吗？
                     </Typography>
                 </DialogContent>
 
                 <DialogActions sx={{ justifyContent: "space-between", padding: "2rem" }}>
                     <Button variant="outlined" color="inherit" onClick={closeModal}>
-                        Cancel
+                        取消
                     </Button>
                     <Button
                         variant="contained"
                         color="primary"
                         onClick={() => deleteSpellGroup(groupName)}
                     >
-                        Yes, delete it
+                        确认删除
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -598,19 +599,19 @@ export default function SpellBook() {
                 maxWidth="sm"
             >
                 <DialogTitle>
-                    Choose spell to add:
+                    选择要添加的法术：
                 </DialogTitle>
 
                 <DialogContent>
                     <FormControl fullWidth sx={{ mt: 2 }}>
                         <InputLabel id="select-spell-label">
-                            Spell
+                            法术
                         </InputLabel>
                         <Select
                             labelId="select-spell-label"
                             value={selectedSpellID}
                             onChange={(event) => setSelectedSpellID(event.target.value)}
-                            label="Spell"
+                            label="法术"
                             inputProps={{
                                 MenuProps: {
                                     MenuListProps: {
@@ -622,7 +623,7 @@ export default function SpellBook() {
                             }}
                         >
                             <MenuItem disabled value="" >
-                                Select a spell
+                                请选择法术
                             </MenuItem>
                             {allSpellIDs
                                 .sort((a, b) => a.localeCompare(b))
@@ -647,10 +648,10 @@ export default function SpellBook() {
                             addSpellToGroup(groupName, selectedSpellID);
                         }}
                     >
-                        Add
+                        添加
                     </Button>
                     <Button variant="outlined" onClick={closeModal}>
-                        Cancel
+                        取消
                     </Button>
                 </DialogActions>
             </Dialog>

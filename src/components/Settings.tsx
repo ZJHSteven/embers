@@ -7,6 +7,7 @@ import { APP_KEY } from "../config";
 import { SimplifiedItem } from "../types/misc";
 import { useOBR } from "../react-obr/providers";
 
+// 文件说明：设置面板，分为本地与 GM 全局设置，涵盖默认施法者、网格缩放、权限与召唤物归属等选项，已汉化所有标签与提示。
 export const LOCAL_STORAGE_KEYS = {
     MOST_RECENT_SPELLS_LIST_SIZE: "most-recent-list",
     GRID_SCALING_FACTOR: "grid-scaling-factor",
@@ -296,14 +297,14 @@ export default function Settings() {
             variant="h6"
             className="title spellbook-options"
         >
-            Settings
+            设置
         </Typography>
         <div className="settings-menu">
             <div>
-                <p className="subtitle" title="These settings apply to you only.">Local Settings</p>
-                <div className="settings-item" title="If set, the first target for some spells will be one of these token, when applicable.">
+                <p className="subtitle" title="仅对当前用户生效。">本地设置</p>
+                <div className="settings-item" title="若设置，将在需要时优先使用所选代替者作为部分法术的第一个目标。">
                     <label>
-                        <p>Default caster</p>
+                        <p>默认施法者</p>
                     </label>
                     <div style={{ maxWidth: "15rem" }}>
                         <Button
@@ -313,15 +314,15 @@ export default function Settings() {
                         >
                             {
                                 (defaultCaster == null || defaultCaster.length == 0) ?
-                                    "Select" :
+                                    "选择" :
                                     defaultCaster.map(image => image.name).join(", ")
                             }
                         </Button>
                     </div>
                 </div>
                 <div className="settings-item">
-                    <label htmlFor="grid-scaling-factor" title="A scaling factor for effects; a spell's width and height will be multiplied by this number. Useful if your grid size is not 5ft">
-                        <p>Grid scaling factor</p>
+                    <label htmlFor="grid-scaling-factor" title="特效缩放系数，法术宽高会乘以该值；当地图网格非 5ft 时可用于修正尺寸。">
+                        <p>网格缩放系数</p>
                     </label>
                     <input
                         name="grid-scaling-factor"
@@ -334,15 +335,15 @@ export default function Settings() {
                         onChange={event => setGridScalingFactor(event.target.value)}
                     />
                 </div>
-                <div className="settings-item" title="Whether to keep the selected targets the same after a spell is cast/the tool is de-selected.">
+                <div className="settings-item" title="施放后是否保留已选目标（或工具取消选中时）。">
                     <label htmlFor="recent-spells-list-size">
-                        <p>Keep selected targets</p>
+                        <p>保留已选目标</p>
                     </label>
                     <Checkbox checked={keepTargets ?? false} onChange={(event) => { setKeepTargets(event.currentTarget.checked) }} />
                 </div>
                 <div className="settings-item">
-                    <label htmlFor="recent-spells-list-size" title="The size of the recent spells list.">
-                        <p>Recent spells list size</p>
+                    <label htmlFor="recent-spells-list-size" title="最近法术列表长度。">
+                        <p>最近法术列表长度</p>
                     </label>
                     <input
                         name="recent-spells-list-size"
@@ -354,8 +355,8 @@ export default function Settings() {
                     />
                 </div>
                 <div className="settings-item">
-                    <label htmlFor="animation-update-rate" title="How many updates (per second) are performed when animating items. WARNING: setting this to a high value may lag your computer.">
-                        <p>Animation update rate</p>
+                    <label htmlFor="animation-update-rate" title="动画刷新率（次/秒）。警告：设置过高可能导致设备卡顿。">
+                        <p>动画刷新率</p>
                     </label>
                     <input
                         name="animation-update-rate"
@@ -371,20 +372,20 @@ export default function Settings() {
                 obr.player?.role === "GM" && <>
                     <hr style={{ margin: "0.5rem 0" }}></hr>
                     <div>
-                        <p className="subtitle" title="These settings apply to all players and can only be set by the GM.">GM Settings</p>
+                        <p className="subtitle" title="以下为全局设置，仅 GM 可配置。">GM 设置</p>
                         <div className="settings-item">
-                            <label htmlFor="recent-spells-list-size" title="If set to false, only the GM can cast spells.">
-                                <p>Players can cast spells</p>
+                            <label htmlFor="recent-spells-list-size" title="若设为否，则仅 GM 可施法。">
+                                <p>允许玩家施法</p>
                             </label>
                             <Checkbox checked={playersCastSpells ?? false} onChange={(event) => { setPlayersCastSpells(event.currentTarget.checked) }} />
                         </div>
-                        <div className="settings-item" title={"Who should own items summoned by Embers. \"Caster\" means the player who cast the spell will own them, while \"GM\" means that the GM will own them regardless of who cast it."}>
+                        <div className="settings-item" title={"召唤物的所有者：选择“施法者”则由施法玩家拥有；选择“GM”则统一归 GM。"}>
                             <label htmlFor="recent-spells-list-size">
-                                <p>Summoned entities rule</p>
+                                <p>召唤物归属</p>
                             </label>
                             <select className="settings-select" onChange={event => setSummonedEntities(event.target.value)} value={summonedEntities ?? ""} >
-                                <option value="gm-only">GM Only</option>
-                                <option value="caster">Caster</option>
+                                <option value="gm-only">仅 GM</option>
+                                <option value="caster">施法者</option>
                             </select>
                         </div>
                     </div>
@@ -400,19 +401,18 @@ export default function Settings() {
             maxWidth="sm"
         >
             <DialogTitle>
-                Delete spell group
+                选择默认施法者来源
             </DialogTitle>
 
             <DialogContent>
                 <Typography variant="body1" gutterBottom>
-                    Please choose from one or more of your assets, or choose{" "}
-                    <strong>"Use Selected"</strong> to use your currently selected tokens.
+                    请选择一个或多个素材，或点击<strong>「使用当前选中」</strong>直接使用当前选中代币。
                 </Typography>
 
                 <Typography variant="body1">
-                    <strong>Selected</strong>:{" "}
+                    <strong>已选择</strong>:{" "}
                     {defaultCaster == null || defaultCaster.length === 0
-                        ? "None"
+                        ? "无"
                         : defaultCaster.map((image) => image.name).join(", ")}
                 </Typography>
             </DialogContent>
@@ -423,21 +423,21 @@ export default function Settings() {
                     variant="outlined"
                     color="primary"
                 >
-                    Open Assets
+                    打开素材库
                 </Button>
                 <Button
                     onClick={() => { handleSetCasterFromSelection(); closeModal(); }}
                     variant="outlined"
                     color="primary"
                 >
-                    Use Selected
+                    使用当前选中
                 </Button>
                 <Button
                     onClick={() => { setDefaultCaster([]); closeModal(); }}
                     variant="outlined"
                     color="primary"
                 >
-                    Clear Selection
+                    清空选择
                 </Button>
             </Box>
         </Dialog>

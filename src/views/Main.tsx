@@ -48,31 +48,31 @@ function hasPartyChanged(prevParty: Player[], currentParty: Player[]) {
 
 const MENU_OPTIONS = [
     {
-        label: "Spellbook",
+        label: "法术书",
         icon: <FaBook className="tab-icon" />,
         component: <SpellBook />,
         role: "PLAYER",
     },
     {
-        label: "Current Spell",
+        label: "当前法术",
         icon: <FaHatWizard className="tab-icon" />,
         component: <SpellDetails />,
         role: "PLAYER",
     },
     {
-        label: "Custom Spells",
+        label: "自定义法术",
         icon: <FaPlus className="tab-icon" />,
         component: <CustomSpells />,
         role: "GM",
     },
     {
-        label: "Scene",
+        label: "场景",
         icon: <FaDisplay className="tab-icon" />,
         component: <SceneControls />,
         role: "PLAYER",
     },
     {
-        label: "Settings",
+        label: "设置",
         icon: <FaGear className="tab-icon" />,
         component: <Settings />,
         role: "PLAYER",

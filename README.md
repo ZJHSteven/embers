@@ -1,53 +1,35 @@
-# 🔥 Embers
-Embers is an Owlbear Rodeo extension that allows you to play animated spells and abilities. It uses the animated assets generously provided by [JB2A](https://jb2a.com/), under the Creative Commons License Attribution-NonCommercial CC BY-NC-SA ([click here](https://creativecommons.org/licenses/by-nc-sa/4.0/) to know more about this). Many thanks to [Aji Banawan](https://github.com/aaajii) for his work on Embers' UI.
+# 余烬（Embers）Owlbear Rodeo 动态法术特效插件
 
-## How to use it
-### Basic usage
-To play a spell or ability effect with Embers, you can select the "Cast spell" tool on the tools panel, or press `shift+C`.
+本仓库基于上游项目 [ArmindoFlores/embers](https://github.com/ArmindoFlores/embers) 进行完整汉化与本地化，保留原有功能并将所有可见 UI/文案转换为简体中文，便于国服玩家直接上手。动画资源依旧由 [JB2A](https://jb2a.com/) 在 CC BY-NC-SA 协议下慷慨提供；界面设计灵感来自 Aji Banawan（致谢！）。
 
-![Tool Panel](./images/toolpanel.png)
+## 快速安装（OBR2 扩展商店）
+1. 在 Owlbear Rodeo 2 内打开 **Extensions** 面板。  
+2. 点击右上角的 **「+」** 按钮。  
+3. 将清单（manifest）链接粘贴到弹窗输入框并确认。链接形如：`https://<你的 Cloudflare 域名>/config/embers/manifest.json`（你在 CF 上的实际部署地址，可按需替换）。  
+4. 安装完成后，工具栏会出现「余烬」图标；第一次打开时建议切换到「法术书」标签熟悉界面。  
 
-After this, you will enter the default "Add Targets" tool mode, which allows you to click on the scene and add targets to your spell. If you mess up, you can remove a target by selecting the "Remove Target" (or pressing `R`), and clicking on a target, or remove all targets using the "Clear Selection" button (or pressing `X`); you can then go back to adding more targets by clicking on the previous tool mode (or pressing `A`).
-Once you are done selecting all your targets, you can select the spell you want to cast (by clicking on the "Select Spell" action or pressing `.`) and either click on the "Cast Selected Spell" tool action or press `Enter` to play the effect.
+## 基础使用
+- **施放法术**：在工具面板选择「施放法术」或按 `Shift+C`。  
+- **添加/移除目标**：默认进入「添加目标」模式，点击即可标记；按 `R` 切换「移除目标」。  
+- **清空选择**：使用「清除目标」按钮或 `X`。  
+- **选择法术**：点击「选择法术」或按 `.` 弹出法术列表，选择后按 `Enter` 播放特效。  
+- **参数微调**：打开侧栏「当前法术」可立即调整颜色、半径等参数并实时生效。  
 
-![Tool Modes](./images/toolmodes.png)
+## 自定义与导入
+- 「自定义法术」标签允许基于现有效果创建新法术，支持导入/导出 JSON，便于团队共享。  
+- 更多函数、动作、素材 ID 可在「资料/列表」页面查看（本地页面已汉化）。  
 
-This image shows, from left to right:
-* Add Target (`A`)
-* Remove Target (`R`)
-* Cast Selected Spell (`Enter`)
-* Select Spell (`.`)
-* Clear Selection (`X`)
+## 路线图（来自上游，保留进度）
+- ✅ 基础投射/范围效果；JB2A 全部法术效果；永久效果；自定义元数据、参数与设置菜单；保存选中目标；玩家控制自身永久效果；创建自定义法术 UI；简单位移类动作；结束时播放效果。  
+- ⏳ 待办：通用效果支持、更多 D&D5e 法术、基础着色/屏幕震动等。  
 
-### Effect Customization
-When the "Cast spell" tool is activated, if Embers' action panel is opened, it will switch to the "Spell Details" tab and show the currently selected spell's properties. Some of these can be edited, like the color of some spells, and will immediately take effect.
+## 相关链接
+- 本地化仓库：<https://github.com/ZJHSteven/embers>（问题反馈/需求请直接提 Issue）。  
+- 上游项目：<https://github.com/ArmindoFlores/embers>。  
+- Owlbear Rodeo 官方 Discord：<https://discord.gg/u5RYMkV98s>（可在 #extensions 频道讨论）。  
 
-![Spell Details](./images/spelldetails.png)
+## 版权与资源
+- 动画素材：JB2A，协议 CC BY-NC-SA 4.0。请勿用于商业用途，保持署名与相同协议。  
+- 代码：遵循原仓库许可；本地化仅调整文案与默认链接，未改动资源指向。  
 
-### API
-Embers exposes most of its capabilities through the Owlbear Rodeo SDK's broadcasting functionality. However, since it is still in a heavy development stage, the documentation regarding this has not been published yet.
-
-## Roadmap
-These are some features that are on Embers' backlog:
-
-- [x] Support basic projectiles/AOE effects
-- [x] Support all spell effects from JB2A
-- [ ] Support all generic effects from JB2A
-- [ ] Implement all spells from D&D 5e's Player Handbook (60/361 - 16.6%)
-- [x] Support permanent effects
-- [x] Support custom metadata
-- [x] Allow for custom spell parameters
-- [x] Implement the settings menu
-- [x] Save targets between castings (when option is enabled in settings)
-- [x] Enforce maximum and minimum number of targets specified in the spell's description
-- [x] Allow players to control their own permanent effects (not just the GM)
-- [x] Create the UI for creating custom spells
-- [x] Allow some simple actions like moving tokens (for spells like Misty Step)
-- [ ] Allow basic shader effects like changing colors, screen shake, etc
-- [x] Allow effects to play when a spell ends manually
-
-### More Information
-For more information, visit the [Embers website](https://embers.armindo.eu).
-
-## Contacts
-The easiest way to reach out to me about this extension is to join Owlbear Rodeo's [Discord Server](https://discord.gg/u5RYMkV98s) and message me at `armindoflores`.
+欢迎使用与二次开发，如需在清单链接或简介中放置自己的域名，可直接修改 `public/manifest.json` 的 `homepage_url` 以及 README 中的示例链接。祝游戏顺利、掷骰开心！

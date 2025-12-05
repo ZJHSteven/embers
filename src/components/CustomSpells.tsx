@@ -21,6 +21,7 @@ import { Modal } from "@owlbear-rodeo/sdk/lib/types/Modal";
 import { log_info } from "../logging";
 import { useOBR } from "../react-obr/providers";
 
+// 文件说明：管理自定义法术的增删改、导入导出与复制；所有界面文本与提示已本地化。
 type ModalType = "choose-spell" | "remove-all-spells";
 
 const newSpellModal: Modal = {
@@ -63,7 +64,7 @@ function removeAllSpells() {
 
 function addSpells(spells: Spells | null) {
     if (spells == null) {
-        OBR.notification.show("Invalid spell JSON", "ERROR");
+        OBR.notification.show("自定义法术 JSON 无效", "ERROR");
         return;
     }
     let added = 0,
@@ -85,10 +86,10 @@ function addSpells(spells: Spells | null) {
     localStorage.setItem(spellListMetadataKey, JSON.stringify(spellList));
     OBR.scene.setMetadata({ [spellListMetadataKey]: spellList });
     log_info(
-        `Added ${added} new spell(s) from file (${overridden} overridden)`
+        `已从文件导入 ${added} 个法术（覆盖 ${overridden} 个同名法术）`
     );
     OBR.notification.show(
-        `Successfully added ${added} new spell(s)`,
+        `成功添加 ${added} 个自定义法术`,
         "SUCCESS"
     );
 }
@@ -200,34 +201,34 @@ export default function CustomSpells() {
             />
             <div className="custom-spells-section">
                 <Typography variant="h6" className="title spellbook-options">
-                    Custom Spells
+                    自定义法术
                     <FaCirclePlus
                         style={{ marginLeft: "0.5rem", cursor: "pointer" }}
                         onClick={() => openOBRModal()}
-                        title="Add a new custom spell"
+                        title="新增自定义法术"
                     />
                     <FaCopy
-                        title="Add a new custom spell based off of an existing one"
+                        title="基于现有法术复制一份再编辑"
                         style={{ marginLeft: "0.5rem", cursor: "pointer" }}
                         onClick={() => setModalOpened("choose-spell")}
                     />
                     <FaUpload
-                        title="Import a list of spells"
+                        title="导入自定义法术列表"
                         style={{ marginLeft: "0.5rem", cursor: "pointer" }}
                         onClick={() => fileInputRef.current?.click?.()}
                     />
                     <FaDownload
-                        title="Export this list of spells"
+                        title="导出当前自定义法术列表"
                         style={{ marginLeft: "0.5rem", cursor: "pointer" }}
                         onClick={exportCustomSpells}
                     />
                     <FaTrash
-                        title="Delete all custom spells"
+                        title="清空所有自定义法术"
                         style={{ marginLeft: "0.5rem", cursor: "pointer" }}
                         onClick={() => setModalOpened("remove-all-spells")}
                     />
                 </Typography>
-                {customSpells.length == 0 && <p>No custom spells yet.</p>}
+                {customSpells.length == 0 && <p>还没有自定义法术。</p>}
                 <ul className="custom-spells-list">
                     {customSpells.map(spellID => ([spellID, getSpell(`$.${spellID}`, true)] as [string, Spell])).filter(spell => spell[1] != undefined).sort((a, b) => a[1].name?.localeCompare?.(b[1].name ?? "") ?? 0).map(([spellID, spell]) => {
                         return (
@@ -243,12 +244,12 @@ export default function CustomSpells() {
                                                 )
                                             )
                                         }
-                                        title="Edit this spell"
+                                        title="编辑该法术"
                                     />
                                     <FaTrash
                                         className="clickable custom-spell-action"
                                         onClick={() => removeSpells([spellID])}
-                                        title="Delete this spell (PERMANENT!)"
+                                        title="删除该法术（不可撤销）"
                                     />
                                 </div>
                             </li>
@@ -265,7 +266,7 @@ export default function CustomSpells() {
                 maxWidth="sm"
             >
                 <DialogTitle>
-                    Choose the spell to copy:
+                    选择要复制的法术：
                 </DialogTitle>
 
                 <DialogContent>
@@ -274,7 +275,7 @@ export default function CustomSpells() {
                             labelId="select-spell-label"
                             value={selectedSpellID}
                             onChange={(event) => setSelectedSpellID(event.target.value)}
-                            label="Spell"
+                            label="法术"
                             inputProps={{
                                 MenuProps: {
                                     MenuListProps: {
@@ -286,7 +287,7 @@ export default function CustomSpells() {
                             }}
                         >
                             <MenuItem disabled value="" >
-                                Select a spell
+                                请选择要复制的法术
                             </MenuItem>
                             {spellIDs
                                 .sort((a, b) => a.localeCompare(b))
@@ -311,10 +312,10 @@ export default function CustomSpells() {
                             openOBRModal(selectedSpellID);
                         }}
                     >
-                        Add
+                        复制并编辑
                     </Button>
                     <Button variant="outlined" onClick={closeModal}>
-                        Cancel
+                        取消
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -327,23 +328,21 @@ export default function CustomSpells() {
                 maxWidth="sm"
             >
                 <DialogTitle>
-                    <Typography variant="h6">Delete spell group</Typography>
+                    <Typography variant="h6">清空所有自定义法术</Typography>
                 </DialogTitle>
 
                 <DialogContent>
                     <Typography variant="body1" gutterBottom>
                         <strong>
-                            Are you sure you want to delete <b>all</b> your custom
-                            spells?{" "}
+                            确定要删除<b>全部</b>自定义法术吗？
                         </strong>
-                        This action is irreversible unless you have previously
-                        exported this list of spells.
+                        请确保已提前导出备份，否则无法恢复。
                     </Typography>
                 </DialogContent>
 
                 <Box sx={{ alignItems: "center", padding: "2rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                     <Button variant="outlined" color="inherit" onClick={closeModal}>
-                        Cancel
+                        取消
                     </Button>
                     <Button
                         variant="contained"
@@ -353,7 +352,7 @@ export default function CustomSpells() {
                             removeAllSpells();
                         }}
                     >
-                        Yes, delete all spells
+                        确认删除全部
                     </Button>
                 </Box>
             </Dialog>

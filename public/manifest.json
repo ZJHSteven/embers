@@ -1,13 +1,13 @@
 {
-    "name": "Embers",
+    "name": "余烬（Embers）",
     "version": "0.1.0",
     "manifest_version": 1,
     "author": "Armindo Flores",
     "icon": "/embers.svg",
-    "homepage_url": "https://github.com/ArmindoFlores/embers",
-    "description": "Use and create animated spell & ability effects for your games.",
+    "homepage_url": "https://github.com/ZJHSteven/embers",
+    "description": "在战斗地图中使用并自定义动画化的法术与能力特效。",
     "action": {
-      "title": "Embers",
+      "title": "余烬法术面板",
       "icon": "/embers.svg",
       "popover": "/",
       "height": 600,

@@ -10,6 +10,8 @@ import { setSelectedSpell } from "../effectsTool";
 import { spellListMetadataKey } from "./NewSpellModal";
 import { useOBR } from "../react-obr/providers";
 
+// 文件用途：法术快速搜索/选择浮层，支持最近使用排序与模糊搜索，供工具栏弹窗调用。
+
 export const spellPopoverId = `${APP_KEY}/spell-popover`;
 export const mostRecentEffectsMetadataKey = `${APP_KEY}/most-recent-effects`;
 
@@ -118,7 +120,7 @@ export default function SpellSelectionPopover() {
     return <div className="popover-container">
         <div className="spell-popover blurry-background" onKeyDown={checkForEscape}>
             <div className="search-container">
-                <input type="text" className="search-input" placeholder="Type to search..." autoFocus value={search} onChange={event => setSearch(event.target.value)} />
+                <input type="text" className="search-input" placeholder="输入以搜索法术…" autoFocus value={search} onChange={event => setSearch(event.target.value)} />
                 <EffectsList sortedSpellsList={sortedSpellsList} searchString={search} isGM={isGM} />
             </div>
         </div>

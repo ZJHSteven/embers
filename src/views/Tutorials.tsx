@@ -1,142 +1,92 @@
 import "./Docs.css";
 
+// 文件用途：提供本地化后的教程页，逐步讲解基础操作与自定义法术流程。
 export default function Tutorials() {
     return <div className="docs-container">
         <a href="/" className="subtle-link row">
             <img src="embers.svg" className="docs-title-icon"></img>
-            <p className="docs-title">Embers</p>
+            <p className="docs-title">余烬（Embers）</p>
         </a>
         <hr className="docs-divider"></hr>
         <div className="docs-body">
             <p className="docs-subtitle">
-                Tutorials
+                教程
             </p>
             <br></br>
             <p className="docs-subsubtitle">
-                Basic Tutorial
+                基础教程
             </p>
             <p className="docs-p">
-                Coming soon!
+                即将上线，敬请期待。
             </p>
             <br></br>
             <p className="docs-subsubtitle">
-                Spellbook Tutorial
+                法术书教程
             </p>
             <p className="docs-p">
-                Coming soon!
+                即将上线，敬请期待。
             </p>
             <br></br>
             <p className="docs-subsubtitle">
-                Custom Spells Tutorial
+                自定义法术教程
             </p>
             <p className="docs-p">
-                Embers allows you to create your own custom spells based on the effects already available.
-                To do this, you will need to open Embers' extension panel and select the "+" icon on the top tabs.
+                余烬支持基于现有效果创建自定义法术。打开扩展面板，切换到顶部的「自定义法术」标签，点击旁边的「+」按钮开始。
             </p>
             <img src="custom-spells-1.png" style={{maxWidth: "90vw"}}></img>
             <p className="docs-p">
-                You can click on the first button after "Custom Spells" to add a completely new spell.
-                However, most of the time, it will be easier to start with an already existing spell by clicking the next button.
-                The third button can be used to import a previously exported list of custom spells, and they can be exported using the next button.
-                Finally, the last button deletes all your custom spells; be careful not to lose your work!
+                「自定义法术」后第一枚按钮用于新增空白法术；第二枚按钮可基于现有法术复制修改；第三、四枚按钮分别导入/导出自定义法术列表；最后一枚为清空，请谨慎使用。
             </p>
             <br></br>
             <p className="docs-p">
-                When editing a spell, you will be presented with the following window:
+                编辑法术时会看到如下界面：
             </p>
             <img src="custom-spells-2.png" style={{maxWidth: "90vw"}}></img>
             <p className="docs-p">
-                The first few fields are pretty straightforward: you can give your spell a name and a unique ID, as well as specify the minimum
-                and maximum number of targets users should select.
+                起始字段较直观：填写法术名称与唯一 ID，并设定目标数的最小/最大限制。
             </p>
             <p className="docs-p">
-                The replication mode describes what happens when more than one target is selected:
+                「复制模式」用于描述多目标时的播放方式：
             </p>
             <ul>
-                <li><p className="docs-p">When it is set to "No", then the spell will have access to the complete array fo targets (this will be described a bit below)</p></li>
-                <li><p className="docs-p">When it is set to "All", the array of targets will always only contain one element, but the spell will be repeated for each selected target</p></li>
-                <li><p className="docs-p">
-                    Finally, a replication mode of "Origin to others" will repeat the spell of every target beyond the first,
-                    and the array of targets will always contain the first target as the first element of the array, and the
-                    current target as the second
-                </p></li>
+                <li><p className="docs-p">选择「无」时，法术可获取完整目标数组，由你在蓝图中自行处理。</p></li>
+                <li><p className="docs-p">选择「全部」时，目标数组只含一个元素，但会对每个目标重复播放。</p></li>
+                <li><p className="docs-p">选择「起点到其他」时，数组首位固定为第一个目标，第二位为当前目标，用于「从施法者到每个目标」的场景。</p></li>
             </ul>
             <p className="docs-p">
-                For example: the spell "Bless" has a replication mode of "All", since each effect only needs to know about one target, and then it is the same
-                for all other targets; on the other hand, "Magic Missiles" has a replication mode of "Origin to all", since each missile will go from the caster
-                to its intended target.
+                例如：「祈福」适合「全部」模式；「魔法飞弹」适合「起点到其他」。
             </p>
             <br></br>
             <p className="docs-p">
-                The copy value describes how long to wait between each spell replica, also counting the number of times a target was selected.
-                When this value is not defined, selectign a target multiple times will have no effect. A negative value will cause all effect
-                instances to be spawned at the same time.
+                「复制间隔」控制多次播放的延迟；未填写则重复选中同一目标不会增加次数，负数表示同时生成全部实例。
             </p>
             <br></br>
             <p className="docs-p">
-                After defining these initial parameters, it is time to add instructions on what effects and actions are to be performed by this spell.
-                When you click on the "+" icon after "Blueprints", you will add a new effect. You can change this to be an action by clicking on the
-                dropdown.
-                You can delete any effect you don't want by using the "Trash" icon, and clicking on the pencil icon will allow you to edit an effect.
+                设置完基础参数后，点击「蓝图」后的「+」新增效果或动作；下拉可切换类型，垃圾桶删除，铅笔编辑。
             </p>
             <img src="custom-spells-3.png" style={{maxWidth: "90vw"}}></img>
             <p className="docs-p">
-                When editing an effect, you can change the following properties:
+                编辑效果时可配置：
             </p>
             <ul>
-                <li><p className="docs-p">
-                    Effect ID - this is the unique identifier of the effect you want to be played; click <a href="/listings">here</a> for a complete list of effects
-                </p></li>
-                <li><p className="docs-p">
-                    Delay - how many milliseconds to wait from the start of the spell to play this effect
-                </p></li>
-                <li><p className="docs-p">
-                    Duration - how long to play this effect for; you can leave this null if you want the effect to play for its full duration, or specify
-                    a custom one; a negative value will make this play indefinitely
-                </p></li>
-                <li><p className="docs-p">
-                    Loops - how many times to play this effect; can't specify both "loops" and "duration"
-                </p></li>
-                <li><p className="docs-p">
-                    Disabled - if true, this effect will not be played
-                </p></li>
-                <li><p className="docs-p">
-                    Disable Hit - if true, clicking on this effect won't selected it
-                </p></li>
-                <li><p className="docs-p">
-                    Attached To - the ID of the item to attach this to; leave blank if it is not supposed to be attached
-                </p></li>
-                <li><p className="docs-p">
-                    Layer - the layer where this effect will be played
-                </p></li>
+                <li><p className="docs-p">效果 ID：要播放的效果标识，完整列表见<a href="/listings">素材清单</a>。</p></li>
+                <li><p className="docs-p">延迟：自法术开始到播放该效果的毫秒数。</p></li>
+                <li><p className="docs-p">持续时间：播放时长；留空按原动画；负数为无限循环。</p></li>
+                <li><p className="docs-p">循环次数：播放次数；与持续时间互斥。</p></li>
+                <li><p className="docs-p">禁用：为真时跳过该效果。</p></li>
+                <li><p className="docs-p">禁用点击：为真时无法点选该效果实例。</p></li>
+                <li><p className="docs-p">附着对象：填入要附着的物件 ID，留空则不附着。</p></li>
+                <li><p className="docs-p">图层：效果播放所在的图层。</p></li>
             </ul>
             <p className="docs-p">
-                There are also additional properties you'll have to define depending on the type of effect you're using.
+                不同效果类型还会有额外字段，按需填写。
             </p>
             <br></br>
             <p className="docs-p">
-                One of the most important things is to understand how editing values works.
-                When you click on a value, you will be able to edit it, and can choose either a literal value, a variable, or a function.
-                When you choose a literal value, you will be able to detail exactly what value you want, like "3", or "true".
-                When you choose a variable, you will be able to access two arrays, targets and globalTargets;
-                globalTargets always includes all selected targets. Their elements have 4 properties:
-            </p>
-            <ul>
-                <li><p className="docs-p">id - the ID of the targeted item</p></li>
-                <li><p className="docs-p">size - the size of the targeted item</p></li>
-                <li><p className="docs-p">position - the position of the targeted item</p></li>
-                <li><p className="docs-p">count - the number of times the item was targeted</p></li>
-            </ul>
-            <p className="docs-p">
-                You can use all of these like <span className="code">targets[0].position</span>, <span className="code">targets.length</span>, etc...
+                数值编辑支持字面量、变量或函数三种模式：可直接填入数字/布尔，也可引用 <span className="code">targets</span> 或 <span className="code">globalTargets</span>（含 id/size/position/count），或选择函数并按需填参数（函数签名详见<a href="/listings">清单</a>）。
             </p>
             <p className="docs-p">
-                When you select a function, the output of that function will become the value of this field.
-                Each function has a supported number of arguments and types detailed <a href="/listings">here</a>.
-            </p>
-            <br></br>
-            <p className="docs-p">
-                Editing actions functions much the same as editing a function.
+                动作编辑方式与函数一致。
             </p>
         </div>
     </div>;

@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import { FaBullseye, FaCrosshairs, FaLink } from "react-icons/fa6";
 import { FaProjectDiagram } from "react-icons/fa";
-// * This component is a summary of the currently selected spell. It displays the spell's name, thumbnail only. *
+// 组件说明：展示当前选中法术的缩略信息（名称、图标、复制模式按钮），便于快速确认与跳转详情。
 export default function SpellBanner({
     onButtonClick,
 }: {
@@ -60,18 +60,18 @@ export default function SpellBanner({
         const props = {
             // Default Option
             startIcon: <FaProjectDiagram />,
-            label: "First Target to All",
+            label: "起点到所有目标",
         };
 
         if (replicate === "no") {
             if (minimum > 1) {
-                props.label = "Wall Target";
+                props.label = "墙体指向";
                 props.startIcon = <FaLink />;
             }
-            props.label = "Single Target";
+            props.label = "单一目标";
             props.startIcon = <FaBullseye />;
         } else if (replicate === "all") {
-            props.label = "All Targets";
+            props.label = "对所有目标";
             props.startIcon = <FaCrosshairs />;
         }
 
@@ -104,7 +104,7 @@ export default function SpellBanner({
             {!selectedSpell ? (
                 <CardContent sx={{ p: 0, pt: 1.5 }}>
                     <Typography variant="body2" sx={{ m: 1, mb: 0 }}>
-                        No active spells. Select one from the spellbook! 🧙‍♂️🔥
+                        尚未选择法术，请在法术书中挑选一个。🧙‍♂️🔥
                     </Typography>
                 </CardContent>
             ) : (
@@ -160,7 +160,7 @@ export default function SpellBanner({
                                 mr: "1rem",
                             }}
                         >
-                            <Tooltip title="Click for more spell details">
+                            <Tooltip title="点击查看法术详情">
                                 {renderSpellMode(
                                     selectedSpell.replicate!,
                                     selectedSpell.minTargets

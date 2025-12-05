@@ -6,31 +6,31 @@ import { Effect } from "../types/effects";
 import { actions } from "../effects/actions";
 import { blueprintFunctions } from "../effects/blueprintFunctions";
 
+// 文件用途：展示可用的函数、动作与效果清单，方便自定义法术时查找标识符和参数。
 const types = {
-    "CIRCLE": "Area of effect",
-    "TARGET": "Projectile",
-    "CONE": "Cone",
-    "WALL": "Wall"
+    "CIRCLE": "范围",
+    "TARGET": "投射物",
+    "CONE": "锥形",
+    "WALL": "墙体"
 };
 
 export default function Listings() {
     return <div className="docs-container">
         <a href="/" className="subtle-link row">
             <img src="embers.svg" className="docs-title-icon"></img>
-            <p className="docs-title">Embers</p>
+            <p className="docs-title">余烬（Embers）</p>
         </a>
         <hr className="docs-divider"></hr>
         <div className="docs-body">
         <p className="docs-subtitle">
-                Listings
+                清单
             </p>
             <p className="docs-p">
-                This page contains a listing of every available asset, function, and action in Embers.
-                You can refer to it when creating new spells.
+                此页列出所有素材、蓝图函数以及动作，创建自定义法术时可直接查阅。
             </p>
             <br></br>
             <p className="docs-subsubtitle">
-                Functions
+                函数
             </p>
             <div>
                 {
@@ -43,7 +43,7 @@ export default function Listings() {
                                     func.desc.minArgs == func.desc.maxArgs && func.desc.minArgs != undefined &&
                                     <li>
                                         <p className="docs-p">
-                                            Number of arguments: { func.desc.minArgs }
+                                            参数数量：{ func.desc.minArgs }
                                         </p>
                                     </li>
                                 }
@@ -51,7 +51,7 @@ export default function Listings() {
                                     func.desc.minArgs != func.desc.maxArgs && func.desc.minArgs != undefined &&
                                     <li>
                                         <p className="docs-p">
-                                            Min. number of arguments: { func.desc.minArgs }
+                                            最少参数：{ func.desc.minArgs }
                                         </p>
                                     </li>
                                 }
@@ -59,7 +59,7 @@ export default function Listings() {
                                     func.desc.minArgs != func.desc.maxArgs && func.desc.maxArgs != undefined &&
                                     <li>
                                         <p className="docs-p">
-                                            Max. number of arguments: { func.desc.maxArgs }
+                                            最多参数：{ func.desc.maxArgs }
                                         </p>
                                     </li>
                                 }
@@ -67,7 +67,7 @@ export default function Listings() {
                                     func.desc.argumentType &&
                                     <li>
                                         <p className="docs-p">
-                                            Arguments type: <span style={{fontStyle: "italic"}}>{ func.desc.argumentType }</span>
+                                            参数类型：<span style={{fontStyle: "italic"}}>{ func.desc.argumentType }</span>
                                         </p>
                                     </li>
                                 }
@@ -75,7 +75,7 @@ export default function Listings() {
                                     func.desc.returnType &&
                                     <li>
                                         <p className="docs-p">
-                                            Return type: <span style={{fontStyle: "italic"}}>{ func.desc.returnType }</span>
+                                            返回类型：<span style={{fontStyle: "italic"}}>{ func.desc.returnType }</span>
                                         </p>
                                     </li>
                                 }
@@ -86,7 +86,7 @@ export default function Listings() {
             </div>
             <br></br>
             <p className="docs-subsubtitle">
-                Actions
+                动作
             </p>
             <div>
                 {
@@ -99,7 +99,7 @@ export default function Listings() {
                                     action.desc.minArgs == action.desc.maxArgs && action.desc.minArgs != undefined &&
                                     <li>
                                         <p className="docs-p">
-                                            Number of arguments: { action.desc.minArgs }
+                                            参数数量：{ action.desc.minArgs }
                                         </p>
                                     </li>
                                 }
@@ -107,7 +107,7 @@ export default function Listings() {
                                     action.desc.minArgs != action.desc.maxArgs && action.desc.minArgs != undefined &&
                                     <li>
                                         <p className="docs-p">
-                                            Min. number of arguments: { action.desc.minArgs }
+                                            最少参数：{ action.desc.minArgs }
                                         </p>
                                     </li>
                                 }
@@ -115,7 +115,7 @@ export default function Listings() {
                                     action.desc.minArgs != action.desc.maxArgs && action.desc.maxArgs != undefined &&
                                     <li>
                                         <p className="docs-p">
-                                            Max. number of arguments: { action.desc.maxArgs }
+                                            最多参数：{ action.desc.maxArgs }
                                         </p>
                                     </li>
                                 }
@@ -123,7 +123,7 @@ export default function Listings() {
                                     action.desc.argumentType &&
                                     <li>
                                         <p className="docs-p">
-                                            Arguments type: <span style={{fontStyle: "italic"}}>{ action.desc.argumentType }</span>
+                                            参数类型：<span style={{fontStyle: "italic"}}>{ action.desc.argumentType }</span>
                                         </p>
                                     </li>
                                 }
@@ -134,14 +134,14 @@ export default function Listings() {
             </div>
             <br></br>
             <p className="docs-subsubtitle">
-                Effects
+                效果
             </p>
             <table>
                 <thead>
                     <tr>
-                        <th>Spell ID</th>
-                        <th>Type</th>
-                        <th>Duration</th>
+                        <th>效果 ID</th>
+                        <th>类型</th>
+                        <th>持续时间</th>
                     </tr>
                 </thead>
                 <tbody>
