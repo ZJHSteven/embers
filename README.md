@@ -5,7 +5,7 @@
 ## 快速安装（OBR2 扩展商店）
 1. 在 Owlbear Rodeo 2 内打开 **Extensions** 面板。  
 2. 点击右上角的 **「+」** 按钮。  
-3. 将清单（manifest）链接粘贴到弹窗输入框并确认。链接形如：`https://<你的 Cloudflare 域名>/config/embers/manifest.json`（你在 CF 上的实际部署地址，可按需替换）。  
+3. 将清单（manifest）链接粘贴到弹窗输入框并确认。链接形如：`https://embers-apu.pages.dev/manifest.json` 
 4. 安装完成后，工具栏会出现「余烬」图标；第一次打开时建议切换到「法术书」标签熟悉界面。  
 
 ## 基础使用
